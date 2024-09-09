@@ -4,16 +4,16 @@
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-| TeamID      |        Team-000        |
-| TeamName    |         sample         |
-| Captain     |       Abdu Alawini     |
-| Captain     |  alawini@illinois.edu  |
-| Member1     |        Kevin Pei       |
-| Member1     |   kevin2@illinois.edu  |
-| Member2     |     Ti-Chung Cheng     |
-| Member2     |  tichung3@illinois.edu |
-| Member3     |                        |
-| Member3     |                        |
+| TeamID      |        Team-082        |
+| TeamName    |          GGWP          |
+| Captain     |       Karena Liang     |
+| Captain     |  ksliang2@illinois.edu |
+| Member1     |        Yanran Lu       |
+| Member1     |  yanran3@illinois.edu  |
+| Member2     |       Colin Cai        |
+| Member2     |  yuangc3@illinois.edu  |
+| Member3     |       Momo Zhou        |
+| Member3     |  momz2@illinois.edu    |
 
 ## Project Information
 
