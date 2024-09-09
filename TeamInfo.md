@@ -13,7 +13,7 @@
 | Member2     |       Colin Cai        |
 | Member2     |  yuangc3@illinois.edu  |
 | Member3     |       Momo Zhou        |
-| Member3     |  momz2@illinois.edu    |
+| Member3     |  momoz2@illinois.edu    |
 
 ## Project Information
 
