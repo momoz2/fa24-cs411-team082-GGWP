@@ -39,7 +39,7 @@ Describe your data sources (Where is the data from? In what format [csv, xls, tx
 - Triggers with discounts for students and veterans, altered results for accomodations
 
 ## Low-fidelity UI Mockup 
-![DE39D44C-7B7B-4B5A-BFF2-6103FA5DA02D_1_201_a](https://github.com/user-attachments/assets/2211fbf7-d6fa-45bc-9178-7c17e9471cdf)
+![33A8EEDC-AA87-42C5-80A0-1FD51830F8BF_1_201_a](https://github.com/user-attachments/assets/40c28232-22a6-41f7-8dae-2ead12d1390d)
 ![969D602E-3236-4F1E-B357-13044AF3F354_1_201_a](https://github.com/user-attachments/assets/359cf475-6913-4e62-a5b2-a5215f9c860e)
 
 
