@@ -44,8 +44,8 @@ Describe your data sources (Where is the data from? In what format [csv, xls, tx
 
 
 
-## Project Work distribution
-Who will be responsible for each of the tasks or subtasks?
-Explain how backend systems will be distributed across members. Be as specific as possible as this could be part of the final peer evaluation metrics.
-
-
+## Project Work Distribution
+Database management and implementation: Colin
+Interface design/Calendar API: Karena
+Diary/Memo: Momo
+Map integration: Aaron
