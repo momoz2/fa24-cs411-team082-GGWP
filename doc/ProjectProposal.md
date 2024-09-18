@@ -33,7 +33,10 @@ Describe your data sources (Where is the data from? In what format [csv, xls, tx
 - Triggers with discounts for students and veterans, altered results for accomodations
 
 ## Low-fidelity UI Mockup 
-What do you imagine your final application’s interface might look like? A PowerPoint slide or a pencil sketch on a piece of paper works!
+![DE39D44C-7B7B-4B5A-BFF2-6103FA5DA02D_1_201_a](https://github.com/user-attachments/assets/2211fbf7-d6fa-45bc-9178-7c17e9471cdf)
+![969D602E-3236-4F1E-B357-13044AF3F354_1_201_a](https://github.com/user-attachments/assets/359cf475-6913-4e62-a5b2-a5215f9c860e)
+
+
 
 ## Project Work distribution
 Who will be responsible for each of the tasks or subtasks?
