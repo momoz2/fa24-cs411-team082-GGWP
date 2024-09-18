@@ -11,7 +11,11 @@ This system will take in user input from both selection and search properties to
 
 ## Usefulness
 Explain as clearly as possible why your chosen application is useful. What are the basic functions of your web application? (What can users of this website do? Which simple and complex features are there?). Make sure to answer the following questions: Are there any similar websites/applications out there?  If so, what are they, and how is yours different?
+Users of this website can create their own account, find and save activties they find interest in. Simple features include search and filtering properties, complex feature may include some calendar-related connection to planning activities.
 
+Similar websites/applications with their differences and/or shortcomings we hope to overcome:
+- Recreation.gov - lists only camping and cabins related plans
+- Meetup - does not account for those with accessibility needs
 
 ## Realness
 Describe your data sources (Where is the data from? In what format [csv, xls, txt,...], data size [cardinality and degree], what information does the data source capture?). 
