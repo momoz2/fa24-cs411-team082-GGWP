@@ -45,7 +45,7 @@ Describe your data sources (Where is the data from? In what format [csv, xls, tx
 
 
 ## Project Work Distribution
-Database management and implementation: Colin
-Interface design/Calendar API: Karena
-Diary/Memo: Momo
-Map integration: Aaron
+<br> Database management and implementation: Colin
+<br> Interface design/Calendar API: Karena
+<br> Diary/Memo: Momo
+<br> Map integration: Aaron
