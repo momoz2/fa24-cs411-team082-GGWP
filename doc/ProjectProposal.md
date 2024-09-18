@@ -1,9 +1,9 @@
-**Project Title**
+# Project Title
 
-**Project Summary**
+## Project Summary
 Whether it be international or domestic travel, finding recreational activties in the United States can be a daunting task with the wide variety and range of activities available. Even for locals, it can be hard to find activities to do with visiting friends or just casual get-togethers with others locally. To remedy this shortcoming, our project aims to aid in that process by bridging the gap between online information and individual experience in recreation. By making such activities more accessible, we hope to encourage users to explore diverse activities while traveling but also in their local areas.
 
-**Description**
+## Description
 This system will take in user input from both selection and search properties to suggest the most suitable recreational activities based on indvidiual needs and interests such as location(US state), average time needed, popular times, activity type, accessibility, etc. By minimizing the period of time spent searching on multiple platforms for various activity types, our system can help people of all ages and situations to find their needed recreation type for both personal and work situations as well as for those who require additional accomodations.
 
 **Creative Component**
