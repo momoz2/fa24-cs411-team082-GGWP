@@ -15,11 +15,11 @@ Explain as clearly as possible why your chosen application is useful. What are t
 
 ## Realness
 Describe your data sources (Where is the data from? In what format [csv, xls, txt,...], data size [cardinality and degree], what information does the data source capture?). 
-Museums - Kaggle
-Zoos - Web Scraped Wikipedia
-Skiing Slopes
-National Parks
-US States
+- Museums - Kaggle
+- Zoos - Web Scraped Wikipedia
+- Skiing Slopes
+- National Parks
+- US States
 
 ## Functionality
 - Create user reviews and ratings, new activity pop-ups
