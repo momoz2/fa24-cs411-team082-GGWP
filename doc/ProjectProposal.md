@@ -8,7 +8,6 @@ This system will take in user input from both selection and search properties to
 
 ## Creative Component
 What would be a good creative component that can improve the functionality of your application? To get a better sense of what a creative component, these are technically challenging features that helps shine your application. Some examples include interactive visualization (using several packages with some level or engineering), using several APIs to support some information presentation or using smart transformations to process data. Some examples that are NOT creative components include: software features that are completed with a few lines of code (i.e., adding a google maps iframe). Again, if you are unsure, discuss with your project TA.
-----
 We plan to the Google Places API to display more detailed information for each activity, such as contact information, reviews, price levels, and user-submitted photos and reviews. To accomodate users with varying accessibility needs, we will create a customizable UI where users can modify their screen to adjust text size or color contrasts to better their user experience as well as provide accessibility filters where our system provides additional information on accessibility options for each activity.
 
 ## Usefulness
