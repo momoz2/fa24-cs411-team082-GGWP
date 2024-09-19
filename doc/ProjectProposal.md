@@ -14,10 +14,13 @@ Share With The World -
 To share your memories with other travellers, you can click on a map of the United States accessible to everybody, and add a short written message reminiscing your experiences along with a pin designating the place you've visited.
 Therefore, not only can you keep track of your own pins and memories, you can also gain insight from others and their experiences to help plan your next trip!
 
-## Usefulness
-Simple features - TraversAll allows users to filter and search through locations and activities to find those that meet their criteria and save activities in a 'bucket list'
+Integrate with your Calendar - 
+Add activities and locations to your calendar as events to streamline trip planning and coordination with friends through Google Calendar API.
 
-Complex features - TraversAll users can also save locations to their own account and add their experiences to a map of the US
+## Usefulness
+Simple features - TraversAll allows users to filter and search through locations and activities to find those that meet their criteria and save activities in a 'bucket list'.
+
+Complex features - TraversAll users can also save locations, add activities to their calendar, add their experiences to a map of the US.
 
 Similar websites/applications with their differences and/or shortcomings we hope to overcome:
 - Recreation.gov - lists only camping and cabins related plans
@@ -25,12 +28,10 @@ Similar websites/applications with their differences and/or shortcomings we hope
 - TripAdvisor - too focussed on selling experiences to users and has an issue with fake reviews, we hope to provide unbiased and factual information
 
 ## Realness
-Describe your data sources (Where is the data from? In what format [csv, xls, txt,...], data size [cardinality and degree], what information does the data source capture?).
-- Museums - Kaggle
-- Zoos - Web Scraped Wikipedia
-- Skiing Slopes
-- National Parks
-- US States
+- Museums - Kaggle (33072 rows, 25 columns)
+- Zoos - Web Scraped Wikipedia (50 rows, 3 columns)
+- National Parks - Kaggle (63 rows, 8 columns)
+- US States (_ rows, _ columns)
 
 ## Functionality
 - Add activities with basic information such as type, location, cost, accessibility
@@ -41,8 +42,6 @@ Describe your data sources (Where is the data from? In what format [csv, xls, tx
 ## Low-fidelity UI Mockup 
 ![33A8EEDC-AA87-42C5-80A0-1FD51830F8BF_1_201_a](https://github.com/user-attachments/assets/40c28232-22a6-41f7-8dae-2ead12d1390d)
 ![969D602E-3236-4F1E-B357-13044AF3F354_1_201_a](https://github.com/user-attachments/assets/359cf475-6913-4e62-a5b2-a5215f9c860e)
-
-
 
 ## Project Work Distribution
 <br> Database management and implementation: Colin
