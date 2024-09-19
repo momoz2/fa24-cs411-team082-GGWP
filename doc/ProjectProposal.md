@@ -29,9 +29,9 @@ Similar websites/applications with their differences and/or shortcomings we hope
 
 ## Realness
 - Museums - Kaggle (33072 rows, 25 columns)
-- Zoos - Web Scraped Wikipedia (50 rows, 3 columns)
+- Zoos - Web Scraped Wikipedia (_ rows, _ columns)
 - National Parks - Kaggle (63 rows, 8 columns)
-- US States (_ rows, _ columns)
+- US States (50 rows, 3 columns)
 
 ## Functionality
 - Add activities with basic information such as type, location, cost, accessibility
