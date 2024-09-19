@@ -28,10 +28,9 @@ Similar websites/applications with their differences and/or shortcomings we hope
 - TripAdvisor - too focussed on selling experiences to users and has an issue with fake reviews, we hope to provide unbiased and factual information
 
 ## Realness
-- Museums - Kaggle (33072 rows, 25 columns)
-- Zoos - Web Scraped Wikipedia (_ rows, _ columns)
+- Museums, Aquariums, Zoos - Kaggle (33072 rows, 25 columns)
 - National Parks - Kaggle (63 rows, 8 columns)
-- US States (50 rows, 3 columns)
+- US States - Scraped from Wikipedia (50 rows, 3 columns)
 
 ## Functionality
 - Add activities with basic information such as type, location, cost, accessibility
