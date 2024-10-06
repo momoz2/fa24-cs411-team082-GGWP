@@ -1,3 +1,6 @@
+# Database Design
+
+## ER Diagram
 <img width="1010" alt="image" src="https://github.com/user-attachments/assets/0d3d0a64-9991-47a2-bb1b-6cd5dcd957b3">
 
 States was modeled as a separate entity instead of within the recreation entity to reduce redundancy, since many tuples would have the same state in the recreation entity. Similarly, the favorites entity was modeled separate from the users entity to avoid redundancy with identical favorited recreation among several users. 
@@ -8,3 +11,7 @@ One comment is only allowed one recreation, since a user’s message cannot be a
 
 
 One favorite by a user can only have one recreation (there can be multiple rows with same user but not one row with multiple recreation), while one recreation can be favorited by multiple users. With similar logic, for the “likes” relation - one user can have multiple favorites, but one favorite can only have exactly one user.
+
+## Normalization - 3NF Decomposition
+
+## Relational Schema
