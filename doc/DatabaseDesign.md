@@ -14,11 +14,12 @@ One favorite by a user can only have one recreation (there can be multiple rows 
 
 ## Normalization - 3NF Decomposition
 
+
 ## Relational Schema
 ```
 Users (
-Username: VARCHAR(255) [PK],
-Email: VARCHAR(255)
+  Username: VARCHAR(255) [PK],
+  Email: VARCHAR(255)
 )
 
 Favorites (
