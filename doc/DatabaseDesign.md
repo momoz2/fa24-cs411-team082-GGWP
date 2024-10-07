@@ -48,62 +48,66 @@ StateName → (CityCount, Population, TotalArea, Region)</br>
 |  |  | Address |  |
 
 1. Identifying Candidate Keys
-
+```
 (FeatureType, CommentId)+ = {FeatureType, CommentId, Username, RecName, DatePosted, Comment, Status, Description, Eligibility, RecType, StateName, Address, Email, CityCount, Population, TotalArea, Region}
+```
 
 2. Computing Minimal Basis for Functional Dependencies
 
-<u>Singleton RHS</u></br>
+**Singleton RHS**
+```
+RecName, FeatureType → Description
+RecName, FeatureType → Eligibility
+RecName → Address 
+RecName → StateName
+RecName → RecType
+Username, RecName → Status 
+Username → Email 
+CommentId → Comment 
+CommentId → DatePosted
+CommentId → Username
+CommentId → RecName
+StateName → CityCount
+StateName → Population
+StateName → TotalArea
+StateName → Region
+```
 
-RecName, FeatureType → Description</br>
-RecName, FeatureType → Eligibility</br>
-RecName → Address </br>
-RecName → StateName</br>
-RecName → RecType</br>
-Username, RecName → Status </br>
-Username → Email </br>
-CommentId → Comment </br>
-CommentId → DatePosted</br>
-CommentId → Username</br>
-CommentId → RecName</br>
-StateName → CityCount</br>
-StateName → Population</br>
-StateName → TotalArea</br>
-StateName → Region</br>
-
-<u>Removing Unnecessary Attributes - LHS</u>
-
-RecName, FeatureType → Description</br>
-RecName, FeatureType → Eligibility</br>
+**Removing Unnecessary Attributes - LHS**
+```
+RecName, FeatureType → Description
+RecName, FeatureType → Eligibility
+```
 RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalArea, Region}</br>
 FeatureType+ = {FeatureType}
-
-Username, RecName → Status </br>
+```
+Username, RecName → Status
+```
 Username+ = {Username, Email}</br>
 RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalArea, Region}
 
 - Unable to remove attributes since attribute closure does not reach RHS without the selected dependency.
 
 4. Creating Relations + Adding Candidate Key If Necessary
-
-A(RecName, FeatureType, Description); </br>
-B(RecName, FeatureType, Eligibility);</br>
-C(RecName, FeatureType);</br>
-D(RecName, Address);</br>
-E(RecName, StateName);</br>
-F(RecName, RecType);</br>
-G(Username, RecName, Status);</br>
-H(Username, Email);</br>
-I(CommentId, Comment);</br>
-J(CommentId, DatePosted);</br>
-K(CommentId, Username);</br>
-L(CommentId, RecName);</br>
-M(StateName, CityCount);</br>
-N(StateName, Population);</br>
-O(StateName, TotalArea);</br>
-P(StateName, Region);</br>
+```
+A(RecName, FeatureType, Description); 
+B(RecName, FeatureType, Eligibility);
+C(RecName, FeatureType);
+D(RecName, Address);
+E(RecName, StateName);
+F(RecName, RecType);
+G(Username, RecName, Status);
+H(Username, Email);
+I(CommentId, Comment);
+J(CommentId, DatePosted);
+K(CommentId, Username);
+L(CommentId, RecName);
+M(StateName, CityCount);
+N(StateName, Population);
+O(StateName, TotalArea);
+P(StateName, Region);
 Q(FeatureType, CommentId);
-
+```
 ## Relational Schema
 ```
 Users (
