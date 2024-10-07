@@ -26,13 +26,14 @@ Comments (CommentId, Username, RecName, Comment, DatePosted)
 ```
 
 **Functional Dependencies**
-
-RecName, FeatureType → (Description, Eligibility) </br>
-RecName → (RecType, StateName, Address) </br>
-Username, RecName → Status </br>
-Username → Email </br>
-CommentId → (Username, RecName, DatePosted, Comment) </br>
-StateName → (CityCount, Population, TotalArea, Region)</br>
+```
+RecName, FeatureType → (Description, Eligibility) 
+RecName → (RecType, StateName, Address) 
+Username, RecName → Status 
+Username → Email 
+CommentId → (Username, RecName, DatePosted, Comment) 
+StateName → (CityCount, Population, TotalArea, Region)
+```
 
 | Left | Middle | Right | None |
 | ---- | ---- | ---- | ---- |
