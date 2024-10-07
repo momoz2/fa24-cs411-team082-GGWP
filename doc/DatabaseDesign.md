@@ -15,3 +15,45 @@ One favorite by a user can only have one recreation (there can be multiple rows 
 ## Normalization - 3NF Decomposition
 
 ## Relational Schema
+```
+Users (
+Username: VARCHAR(255) [PK],
+Email: VARCHAR(255)
+)
+
+Favorites (
+  Username: VARCHAR(255) [PK] [FK to Users.Username]
+  RecName: VARCHAR(255) [FK to Recreation.RecName],
+  Status: BOOLEAN
+)
+
+Features (
+  RecName: VARCHAR(255) [PK] [FK.Recreation.RecName]
+  FeatureType: VARCHAR(255),
+  Eligibility: VARCHAR(255),
+  Description: VARCHAR(255)
+)
+
+Recreation (
+  RecName: VARCHAR(255) [PK],
+  RecType: VARCHAR(15),
+  State: VARCHAR(2) [FK.States.StateName],
+  Address: VARCHAR(255)
+)
+
+States  (
+  StateName: VARCHAR(255) [PK],
+  CityCount: INT,
+  Region: VARCHAR(255),
+  TotalArea: REAL,
+  Population: INT
+)
+
+Comments (
+  CommentId: REAL [PK],
+  Username: VARCHAR(255) [FK to Users.Username],
+  RecName: VARCHAR(255) [FK to Recreation.RecName],
+  Comment: VARCHAR(255),
+  DatePosted:VARCHAR(255)
+)
+```
