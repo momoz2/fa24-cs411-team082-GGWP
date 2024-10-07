@@ -1,7 +1,7 @@
 # Database Design
 
 ## ER Diagram
-<img width="838" alt="image" src="https://github.com/user-attachments/assets/7305de88-019f-482e-8c92-778b36069d14">
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/7305de88-019f-482e-8c92-778b36069d14">
 
 States was modeled as a separate entity instead of within the recreation entity to reduce redundancy, since many tuples would have the same state in the recreation entity. Similarly, the favorites entity was modeled separate from the users entity to avoid redundancy with identical favorited recreation among several users. 
 
