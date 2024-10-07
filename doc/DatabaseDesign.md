@@ -13,7 +13,7 @@ One comment is only allowed one recreation, since a user’s message cannot be a
 One favorite by a user can only have one recreation (there can be multiple rows with same user but not one row with multiple recreation), while one recreation can be favorited by multiple users. With similar logic, for the “likes” relation - one user can have multiple favorites, but one favorite can only have exactly one user.
 
 ## Normalization - 3NF Decomposition
-# Relations from ER Diagram
+**Relations from ER Diagram**
 ```
 Users (Username, Email)
 Favorites (Username, RecName, Status)
@@ -23,7 +23,7 @@ States(StateName, CityCount, Region, TotalArea, Population)
 Comments (CommentId, Username, RecName, Comment, DatePosted)
 ```
 
-# Functional Dependencies
+**Functional Dependencies**
 RecName, FeatureType → (Description, Eligibility)
 RecName → (RecType, StateName, Address)
 Username, RecName → Status
@@ -31,7 +31,13 @@ Username → Email
 CommentId → (Username, RecName, DatePosted, Comment)
 StateName → (CityCount, Population, TotalArea, Region)
 
+|   Info      |        Description     |
+| ----------- | ---------------------- |
+|  Title      |       TraversAll     |
+
+
 | Left | Middle | Right | None |
+| ---- | ---- | ---- | ---- |
 | FeatureType | RecName | Description |  |
 | CommentId | Username | Eligibility |  |
 |  | StateName | Status |  |
