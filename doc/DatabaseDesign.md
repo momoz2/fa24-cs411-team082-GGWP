@@ -13,7 +13,9 @@ One comment is only allowed one recreation, since a user’s message cannot be a
 One favorite by a user can only have one recreation (there can be multiple rows with same user but not one row with multiple recreation), while one recreation can be favorited by multiple users. With similar logic, for the “likes” relation - one user can have multiple favorites, but one favorite can only have exactly one user.
 
 ## Normalization - 3NF Decomposition
+
 **Relations from ER Diagram**
+
 ```
 Users (Username, Email)
 Favorites (Username, RecName, Status)
@@ -24,6 +26,7 @@ Comments (CommentId, Username, RecName, Comment, DatePosted)
 ```
 
 **Functional Dependencies**
+
 RecName, FeatureType → (Description, Eligibility) 
 RecName → (RecType, StateName, Address) 
 Username, RecName → Status 
@@ -45,10 +48,13 @@ StateName → (CityCount, Population, TotalArea, Region)
 |  |  | Address |  |
 
 1. Identifying Candidate Keys
+
 (FeatureType, CommentId)+ = {FeatureType, CommentId, Username, RecName, DatePosted, Comment, Status, Description, Eligibility, RecType, StateName, Address, Email, CityCount, Population, TotalArea, Region}
 
 2. Computing Minimal Basis for Functional Dependencies
+
 <u>Singleton RHS</u>
+
 RecName, FeatureType → Description
 RecName, FeatureType → Eligibility
 
@@ -59,7 +65,7 @@ RecName → RecType
 Username, RecName → Status 
 Username → Email 
 
-CommentId → Comment
+CommentId → Comment </br>
 CommentId → DatePosted
 CommentId → Username
 CommentId → RecName
@@ -70,6 +76,7 @@ StateName → TotalArea
 StateName → Region
 
 <u>Removing Unnecessary Attributes - LHS</u>
+
 RecName, FeatureType → Description
 RecName, FeatureType → Eligibility
 RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalArea, Region}
@@ -82,7 +89,8 @@ RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalAr
 - Unable to remove attributes since attribute closure does not reach RHS without the selected dependency.
 
 4. Creating Relations + Adding Candidate Key If Necessary
-A(RecName, FeatureType, Description);
+
+A(RecName, FeatureType, Description); </br>
 B(RecName, FeatureType, Eligibility);
 C(RecName, FeatureType);
 D(RecName, Address);
