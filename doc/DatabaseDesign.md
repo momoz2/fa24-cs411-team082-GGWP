@@ -19,7 +19,7 @@ One favorite by a user can only have one recreation (there can be multiple rows 
 ```
 Users (Username, Email)
 Favorites (Username, RecName, Status)
-Features (RecName, FeatureType, Eligibility, Description)
+Discounts (Discount_ID, RecName, FeatureType, Eligibility, Description)
 Recreation (RecName, RecType, State, Address)
 States(StateName, CityCount, Region, TotalArea, Population)
 Comments (CommentId, Username, RecName, Comment, DatePosted)
