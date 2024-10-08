@@ -54,18 +54,20 @@ States: StateName → (CityCount, Population, TotalArea, Region)
 
 1. Identifying Candidate Keys
 ```
-(FeatureType, CommentId)+ = {FeatureType, CommentId, Username, RecName, DatePosted, Comment, Status, Description, Eligibility, RecType, StateName, Address, Email, CityCount, Population, TotalArea, Region}
+(Discount_ID, CommentId)+ = {Discount_ID, CommentId, Username, RecName, DatePosted, Comment, FeatureType, Status, Description, Eligibility, RecType, StateName, Address, Email, CityCount, Population, TotalArea, Region}
 ```
 
 2. Computing Minimal Basis for Functional Dependencies
 
 **Singleton RHS**
 ```
-RecName, FeatureType → Description
-RecName, FeatureType → Eligibility
-RecName → Address 
+Discount_ID → RecName
+Discount_ID → FeatureType
+Discount_ID →  Description
+Discount_ID →  Eligibility
 RecName → StateName
 RecName → RecType
+RecName → Address
 Username, RecName → Status 
 Username → Email 
 CommentId → Comment 
@@ -80,12 +82,6 @@ StateName → Region
 
 **Removing Unnecessary Attributes - LHS**
 ```
-RecName, FeatureType → Description
-RecName, FeatureType → Eligibility
-```
-RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalArea, Region}</br>
-FeatureType+ = {FeatureType}
-```
 Username, RecName → Status
 ```
 Username+ = {Username, Email}</br>
@@ -95,23 +91,12 @@ RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalAr
 
 4. Creating Relations + Adding Candidate Key If Necessary
 ```
-A(RecName, FeatureType, Description); 
-B(RecName, FeatureType, Eligibility);
-C(RecName, FeatureType);
-D(RecName, Address);
-E(RecName, StateName);
-F(RecName, RecType);
-G(Username, RecName, Status);
-H(Username, Email);
-I(CommentId, Comment);
-J(CommentId, DatePosted);
-K(CommentId, Username);
-L(CommentId, RecName);
-M(StateName, CityCount);
-N(StateName, Population);
-O(StateName, TotalArea);
-P(StateName, Region);
-Q(FeatureType, CommentId);
+A(Username [PK], Email)
+B(Username [PK, FK to Users.Username],RecName [PK, FK to Recreation.RecName], Status)
+C(Discount_ID [PK], RecName [FK to Recreation.RecName], FeatureType, Description, Eligibility)
+D(RecName [PK], RecType, StateName [FK to States.StateName], Address)
+E(StateName [PK], CityCount, Population, TotalArea, Region)
+F(CommentId [PK], Username[FK to Users.Username], RecName[FK to Recreation.RecName], Comment, DatePosted)
 ```
 ## Relational Schema
 ```
@@ -126,9 +111,10 @@ Favorites (
   Status: BOOLEAN
 )
 
-Features (
-  RecName: VARCHAR(255) [PK] [FK.Recreation.RecName]
-  FeatureType: VARCHAR(255) [PK],
+Discounts(
+  Discount_ID: VARCHAR(255) [PK],
+  RecName: VARCHAR(255) [FK.Recreation.RecName],
+  FeatureType: VARCHAR(255),
   Eligibility: VARCHAR(255),
   Description: VARCHAR(255)
 )
