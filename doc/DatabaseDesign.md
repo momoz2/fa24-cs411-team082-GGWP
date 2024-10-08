@@ -32,7 +32,7 @@ Recreation: RecName → (RecType, StateName, Address)
 Favorites: Username, RecName → Status 
 Users：Username → Email 
 Comments: CommentId → (Username, RecName, DatePosted, Comment) 
-Stats: StateName → (CityCount, Population, TotalArea, Region)
+States: StateName → (CityCount, Population, TotalArea, Region)
 ```
 
 | Left | Middle | Right | None |
