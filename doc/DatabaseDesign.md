@@ -37,7 +37,7 @@ States: StateName → (CityCount, Population, TotalArea, Region)
 
 | Left | Middle | Right | None |
 | ---- | ---- | ---- | ---- |
-| FeatureType | RecName | Description |  |
+| Discount_ID | RecName | Description |  |
 | CommentId | Username | Eligibility |  |
 |  | StateName | Status |  |
 |  |  | DatePosted |  |
@@ -47,6 +47,10 @@ States: StateName → (CityCount, Population, TotalArea, Region)
 |  |  | Region |  |
 |  |  | RecType |  |
 |  |  | Address |  |
+|  |  | FeatureType |  |
+|  |  | CityCount |  | 
+|  |  | Email |  | 
+
 
 1. Identifying Candidate Keys
 ```
