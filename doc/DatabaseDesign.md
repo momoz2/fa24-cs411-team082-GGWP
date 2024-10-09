@@ -1,7 +1,7 @@
 # Database Design
 
 ## ER Diagram
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/7305de88-019f-482e-8c92-778b36069d14">
+![image](https://github.com/user-attachments/assets/ac4d3948-97f4-46ac-bc71-af6eb2e8e884)
 
 States was modeled as a separate entity instead of within the recreation entity to reduce redundancy, since many tuples would have the same state in the recreation entity. Similarly, the favorites entity was modeled separate from the users entity to avoid redundancy with identical favorited recreation among several users. 
 
@@ -19,7 +19,7 @@ One favorite by a user can only have one recreation (there can be multiple rows 
 ```
 Users (Username, Email)
 Favorites (Username, RecName, Status)
-Discounts (Discount_ID, RecName, FeatureType, Eligibility, Description)
+Discounts (DiscountId, RecName, DiscountType, Eligibility, Description)
 Recreation (RecName, RecType, State, Address)
 States(StateName, CityCount, Region, TotalArea, Population)
 Comments (CommentId, Username, RecName, Comment, DatePosted)
@@ -27,7 +27,7 @@ Comments (CommentId, Username, RecName, Comment, DatePosted)
 
 **Functional Dependencies**
 ```
-Discounts: Discount_ID → (RecName, FeatureType,Description, Eligibility)
+Discounts: DiscountId → (RecName, DiscountType, Description, Eligibility)
 Recreation: RecName → (RecType, StateName, Address) 
 Favorites: Username, RecName → Status 
 Users：Username → Email 
@@ -37,7 +37,7 @@ States: StateName → (CityCount, Population, TotalArea, Region)
 
 | Left | Middle | Right | None |
 | ---- | ---- | ---- | ---- |
-| Discount_ID | RecName | Description |  |
+| DiscountId | RecName | Description |  |
 | CommentId | Username | Eligibility |  |
 |  | StateName | Status |  |
 |  |  | DatePosted |  |
@@ -47,24 +47,24 @@ States: StateName → (CityCount, Population, TotalArea, Region)
 |  |  | Region |  |
 |  |  | RecType |  |
 |  |  | Address |  |
-|  |  | FeatureType |  |
+|  |  | DiscountType |  |
 |  |  | CityCount |  | 
 |  |  | Email |  | 
 
 
 1. Identifying Candidate Keys
 ```
-(Discount_ID, CommentId)+ = {Discount_ID, CommentId, Username, RecName, DatePosted, Comment, FeatureType, Status, Description, Eligibility, RecType, StateName, Address, Email, CityCount, Population, TotalArea, Region}
+(DiscountId, CommentId)+ = {DiscountId, CommentId, Username, RecName, DatePosted, Comment, DiscountType, Status, Description, Eligibility, RecType, StateName, Address, Email, CityCount, Population, TotalArea, Region}
 ```
 
 2. Computing Minimal Basis for Functional Dependencies
 
 **Singleton RHS**
 ```
-Discount_ID → RecName
-Discount_ID → FeatureType
-Discount_ID →  Description
-Discount_ID →  Eligibility
+DiscountId → RecName
+DiscountId → DiscountType
+DiscountId →  Description
+DiscountId →  Eligibility
 RecName → StateName
 RecName → RecType
 RecName → Address
@@ -93,7 +93,7 @@ RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalAr
 ```
 A(Username [PK], Email)
 B(Username [PK, FK to Users.Username],RecName [PK, FK to Recreation.RecName], Status)
-C(Discount_ID [PK], RecName [FK to Recreation.RecName], FeatureType, Description, Eligibility)
+C(DiscountId [PK], RecName [FK to Recreation.RecName], DiscountType, Description, Eligibility)
 D(RecName [PK], RecType, StateName [FK to States.StateName], Address)
 E(StateName [PK], CityCount, Population, TotalArea, Region)
 F(CommentId [PK], Username[FK to Users.Username], RecName[FK to Recreation.RecName], Comment, DatePosted)
@@ -112,9 +112,9 @@ Favorites (
 )
 
 Discounts(
-  Discount_ID: VARCHAR(255) [PK],
+  DiscountId: VARCHAR(255) [PK],
   RecName: VARCHAR(255) [FK.Recreation.RecName],
-  FeatureType: VARCHAR(255),
+  DiscountType: VARCHAR(255),
   Eligibility: VARCHAR(255),
   Description: VARCHAR(255)
 )
