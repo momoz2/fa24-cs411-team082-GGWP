@@ -17,12 +17,12 @@ One favorite by a user can only have one recreation (there can be multiple rows 
 **Relations from ER Diagram**
 
 ```
-Users (Username, Email)
-Favorites (Username, RecName, Status)
-Discounts (DiscountId, RecName, DiscountType, Eligibility, Description)
-Recreation (RecName, RecType, State, Address)
+Users(Username, Email)
+Favorites(Username, RecName, Status)
+Discounts(DiscountId, RecName, DiscountType, Eligibility, Description)
+Recreation(RecName, RecType, State, Address)
 States(StateName, CityCount, Region, TotalArea, Population)
-Comments (CommentId, Username, RecName, Comment, DatePosted)
+Comments(CommentId, Username, RecName, Comment, DatePosted)
 ```
 
 **Functional Dependencies**
@@ -89,7 +89,7 @@ RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalAr
 
 - Unable to remove attributes since attribute closure does not reach RHS without the selected dependency.
 
-4. Final Relations + Adding Candidate Key If Necessary
+4. Final Relations
 ```
 A(Username, Email)
 B(Username, RecName, Status)
