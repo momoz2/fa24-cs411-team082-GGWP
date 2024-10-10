@@ -1,11 +1,11 @@
 # Database Design
 
 ## ER Diagram
-![image](https://github.com/user-attachments/assets/ac4d3948-97f4-46ac-bc71-af6eb2e8e884)
+![image](https://github.com/user-attachments/assets/7bacff2e-887d-4cc5-a653-42e2ebb8681c)
 
 States was modeled as a separate entity instead of within the recreation entity to reduce redundancy, since many tuples would have the same state in the recreation entity. Similarly, the favorites entity was modeled separate from the users entity to avoid redundancy with identical favorited recreation among several users. 
 
-Features and recreation have a many-to-many relation, since a feature such as a veteran discount can be applicable to more than one recreation and vice versa - one recreation can have multiple features such as having both a veteran discount and a student discount. One recreation is allowed exactly one state, since there is only one location, though one state (location) can have many recreational activities.
+Discounts and recreation have a many-to-many relation, since a feature such as a veteran discount can be applicable to more than one recreation and vice versa - one recreation can have multiple discounts such as having both a veteran discount and a student discount. One recreation is allowed exactly one state, since there is only one location, though one state (location) can have many recreational activities.
 
 One comment is only allowed one recreation, since a user’s message cannot be applied to multiple recreational activities; this can also minimize fake reviews. One recreation is allowed 0 or more comments, to allow for a variety of user comments. Similarly, one user can leave multiple comments for various recreation but one comment can only be contributed by one user. 
 
@@ -27,12 +27,12 @@ Comments (CommentId, Username, RecName, Comment, DatePosted)
 
 **Functional Dependencies**
 ```
-Discounts: DiscountId → (RecName, DiscountType, Description, Eligibility)
-Recreation: RecName → (RecType, StateName, Address) 
-Favorites: Username, RecName → Status 
-Users：Username → Email 
-Comments: CommentId → (Username, RecName, DatePosted, Comment) 
-States: StateName → (CityCount, Population, TotalArea, Region)
+DiscountId → (RecName, DiscountType, Description, Eligibility)
+RecName → (RecType, StateName, Address) 
+Username, RecName → Status 
+Username → Email 
+CommentId → (Username, RecName, DatePosted, Comment) 
+StateName → (CityCount, Population, TotalArea, Region)
 ```
 
 | Left | Middle | Right | None |
@@ -89,14 +89,14 @@ RecName+ = {RecName, RecType, StateName, Address, CityCount, Population, TotalAr
 
 - Unable to remove attributes since attribute closure does not reach RHS without the selected dependency.
 
-4. Creating Relations + Adding Candidate Key If Necessary
+4. Final Relations + Adding Candidate Key If Necessary
 ```
-A(Username [PK], Email)
-B(Username [PK, FK to Users.Username],RecName [PK, FK to Recreation.RecName], Status)
-C(DiscountId [PK], RecName [FK to Recreation.RecName], DiscountType, Description, Eligibility)
-D(RecName [PK], RecType, StateName [FK to States.StateName], Address)
-E(StateName [PK], CityCount, Population, TotalArea, Region)
-F(CommentId [PK], Username[FK to Users.Username], RecName[FK to Recreation.RecName], Comment, DatePosted)
+A(Username, Email)
+B(Username, RecName, Status)
+C(DiscountId, RecName, DiscountType, Eligibility, Description)
+D(RecName, RecType, StateName, Address)
+E(StateName, CityCount, Population, TotalArea, Region)
+F(CommentId, Username, RecName, DatePosted, Comment)
 ```
 ## Relational Schema
 ```
@@ -122,7 +122,7 @@ Discounts(
 Recreation (
   RecName: VARCHAR(255) [PK],
   RecType: VARCHAR(15),
-  State: VARCHAR(2) [FK.States.StateName],
+  StateName: VARCHAR(2) [FK.States.StateName],
   Address: VARCHAR(255)
 )
 
