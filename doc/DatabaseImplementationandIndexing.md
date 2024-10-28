@@ -1,11 +1,11 @@
 
--- Table 1: Users
+-- Table 1:Users
 CREATE TABLE Users(
 Username VARCHAR(255) PRIMARY KEY, 
 Email VARCHAR(255)
 )
 
-–Table 2:Favorites 
+–- Table 2:Favorites 
 CREATE TABLE Favorites (
 Username VARCHAR(255),
 RecName VARCHAR(255),
@@ -15,7 +15,7 @@ FOREIGN KEY(Username) REFERENCES Users(Username)
 FOREIGN KEY(RecName) REFERENCES Recreation(RecName)
 );
 
-–Table 3:Comments
+–- Table 3:Comments
 CREATE TABLE Comments (
 CommentId REAL PRIMARY KEY,
 Username VARCHAR(255),
@@ -27,7 +27,7 @@ FOREIGN KEY (RecName) REFERENCES Recreation(RecName)
 );
 
 
-–Table 4: Recreation
+–- Table 4:Recreation
 Create Table Recreation {
 RecName VARCHAR(225),
 RecType VARCHAR(225),
@@ -48,7 +48,7 @@ FOREIGN KEY(DiscountId) REFERENCE Discounts(DiscountId)
 )
 
 
-–Table 5: Discounts
+–- Table 5:Discounts
 Create Table Discounts(
 DiscountId VARCHAR(255) PRIMARY KEY,
 RecName VARCHAR(255),
@@ -59,7 +59,7 @@ FOREIGN KEY (RecName) REFERENCES Recreation(RecName)
 );
 
 
-– Table 6: States
+–- Table 6:States
 Create Table States (
   StateName VARCHAR(225),
   CityCount VARCHAR(225),
