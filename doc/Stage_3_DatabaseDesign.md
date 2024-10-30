@@ -139,7 +139,7 @@ For 15 states and the region they occupy, select their name and region info and 
 ```sql
 SELECT S.StateName, S.Region, COUNT(R.RecName) AS TotalRecreation
 FROM States S
-JOIN Recreation R ON Ss.StateName = R.StateName
+JOIN Recreation R ON S.StateName = R.StateName
 GROUP BY S.StateName, S.Region
 ORDER BY TotalRecreation DESC
 limit 15;
