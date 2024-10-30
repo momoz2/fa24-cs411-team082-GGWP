@@ -144,7 +144,8 @@ GROUP BY S.StateName, S.Region
 ORDER BY TotalRecreation DESC
 limit 15;
 ```
-![WechatIMG876](https://github.com/user-attachments/assets/6cd8305c-5673-4002-ab7c-64b84d3f12e2)
+<img width="571" alt="截圖 2024-10-30 16 25 40" src="https://github.com/user-attachments/assets/114326ca-c308-47e2-a70d-ae8b6814b4ab">
+
 
 
 
