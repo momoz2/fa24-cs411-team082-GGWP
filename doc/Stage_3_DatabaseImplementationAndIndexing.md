@@ -1,6 +1,6 @@
 # Database Implementation and Indexing
 
-## Tables in our terminal
+## Relational Schema
 
 ![13061730318691_ pic](https://github.com/user-attachments/assets/21fbc00f-4989-4c20-b0ca-ff91a77317a7)
 
