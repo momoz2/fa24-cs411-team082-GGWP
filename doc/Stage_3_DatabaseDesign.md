@@ -107,17 +107,17 @@ LIMIT 15;
 
 **Subquery 2**
 
-Select the fifteen recreational activities with the most favorites, organised by region (alphabetical ascending) and number of favorites (descending).
+
+Select the total number of discounts and recname of recreational activities that offers the discounts
 ```sql
-SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
+SELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
 FROM Recreation R
-JOIN Favorites F ON R.RecName = F.RecName
-JOIN States S ON R.StateName = S.StateName
-GROUP BY R.RecName, S.StateName
-ORDER BY S.StateName, TotalFavorites DESC
-LIMIT 5;
+JOIN Discounts D ON R.RecName = D.RecName
+GROUP BY R.RecName
+ORDER BY TotalDiscounts DESC;
 ```
-![8731730236895_ pic](https://github.com/user-attachments/assets/1b0cacc7-fd90-4b44-9a71-f2cc783cceaf)
+![WechatIMG876](https://github.com/user-attachments/assets/ea5c77af-2dcf-40ef-9a1d-cacbd3a6a025)
+
 
 
 **Subquery 3**
