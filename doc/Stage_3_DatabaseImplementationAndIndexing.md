@@ -10,13 +10,13 @@
 CREATE DATABASE Rec;
 USE Rec;
 
--- Users table
+-- 1. Users table
 CREATE TABLE Users(
     Username VARCHAR(255) PRIMARY KEY, 
     Email VARCHAR(255)
 );
 
--- 1. States table
+-- 2. States table
 CREATE TABLE States (
     StateName VARCHAR(225) PRIMARY KEY,
     CityCount VARCHAR(225),
@@ -25,7 +25,7 @@ CREATE TABLE States (
     TotalArea VARCHAR(225)
 );
 
--- 2. Recreations table
+-- 3. Recreations table
 CREATE TABLE Recreation (
     RecName VARCHAR(225) PRIMARY KEY,
     RecType VARCHAR(225),
@@ -34,7 +34,7 @@ CREATE TABLE Recreation (
     FOREIGN KEY (StateName) REFERENCES States(StateName)
 );
 
--- 3. Discounts table
+-- 4. Discounts table
 CREATE TABLE Discounts (
     DiscountId VARCHAR(255) PRIMARY KEY,
     RecName VARCHAR(255),
@@ -52,7 +52,7 @@ CREATE TABLE Provides (
     FOREIGN KEY (DiscountId) REFERENCES Discounts(DiscountId)
 );
 
--- 4. Favorites table
+-- 5. Favorites table
 CREATE TABLE Favorites (
     Username VARCHAR(255),
     RecName VARCHAR(255),
@@ -62,7 +62,7 @@ CREATE TABLE Favorites (
     FOREIGN KEY (RecName) REFERENCES Recreation(RecName)
 );
 
--- 5. Comments table
+-- 6. Comments table
 CREATE TABLE Comments (
     CommentId REAL PRIMARY KEY,
     Username VARCHAR(255),
@@ -81,9 +81,10 @@ CREATE TABLE Comments (
 
 
 
-## At least 1000 rows in our tables
-
+## At least 1000 rows in at least 3 tables
+We have 2,002 users and 3,952 recreation activities and 1,001 favourites
 ![12111730233715_ pic](https://github.com/user-attachments/assets/06fc5a99-3ebd-449f-8522-eb1b159bc216)
+We have 1,000 comments
 ![12121730233732_ pic](https://github.com/user-attachments/assets/dfc74918-5386-4738-8229-f38386b23538)
 
 
