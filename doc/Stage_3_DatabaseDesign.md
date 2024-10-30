@@ -227,7 +227,27 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 
 
 **Index 3:**
+
+```sql
+CREATE INDEX idx_recreation_recname ON Recreation(RecName);
+ERROR 1061 (42000): Duplicate key name 'idx_recreation_recname'
+mysql> CREATE INDEX idx_recreation_recname_address ON Recreation(RecName, Address);
+Query OK, 0 rows affected (0.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+- New Cost: 808.16
+- New Time: 6.27
+
 ![image](https://github.com/user-attachments/assets/141c2d3b-4ea9-4d70-844e-0e133a2b999f)
+
+We chose to create a composite index on the RecName columns in the Recreation table. This decision was made because both fields are frequently used in the GROUP BY and ORDER BY clauses within the query, making them ideal candidates for indexing. By indexing these fields together, we aimed to speed up the sorting and grouping operations, reducing query execution time.
+
+  
+Findings and Explanation:
+The actual time decreased from 7.004 to 6.27 seconds.The cost remained roughly the same, around 808.16. The indexing strategy effectively optimizes the query by improving the speed of joins, aggregations, and sorting operations, resulting in faster execution times and lower resource usage
+
+
 
 
 ## Subquery 3
