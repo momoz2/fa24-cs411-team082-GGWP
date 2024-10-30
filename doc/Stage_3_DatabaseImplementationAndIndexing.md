@@ -6,7 +6,7 @@
 
 
 ## DDL Table Commands
-```
+```sql
 CREATE DATABASE Rec;
 USE Rec;
 
@@ -91,7 +91,7 @@ We have 1,000 comments
 ## Advanced Query Implementation, Testing and Analysis
 **Subquery 1**
 Select the fifteen recreational activities with the most comments, organised by region (alphabetical ascending) and number of comments (descending).  
-```
+```sql
 SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
 FROM Recreation R
 JOIN Favorites F ON R.RecName = F.RecName
@@ -106,7 +106,7 @@ LIMIT 15;
 
 **Subquery 2**
 Select the fifteen recreational activities with the most favorites, organised by region (alphabetical ascending) and number of favorites (descending).
-```
+```sql
 SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
 FROM Recreation R
 JOIN Favorites F ON R.RecName = F.RecName
@@ -120,7 +120,7 @@ LIMIT 5;
 
 **Subquery 3**
 Select the recreation activities with the most discounts, organised by number of discounts (descending).
-```
+```sql
 SELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
 FROM Recreation R
 JOIN Discounts D ON R.RecName = D.RecName
@@ -131,7 +131,7 @@ ORDER BY TotalDiscounts DESC;
 
 **Subquery 4**
 For each state and the region they occupy, select their name and region info and total number of recreations. Organise by number of recreations (descending).
-```
+```sql
 SELECT S.StateName, S.Region, COUNT(R.RecName) AS TotalRecreation
 FROM States S
 JOIN Recreation R ON S.StateName = R.StateName
