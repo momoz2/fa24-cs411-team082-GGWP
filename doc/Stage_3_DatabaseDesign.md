@@ -220,11 +220,10 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 
 ## Subquery 3
 **Default Index**
-- Cost: 
-- Time: 
+- Cost: 451.7
+- Time: 7.434...7.436
 
 ![9300171136708425d64930321ac61d30](https://github.com/user-attachments/assets/9645fec7-bdb6-421d-803f-ef9d242e225f)
-
 
 **Index 1:**
 
@@ -243,6 +242,18 @@ The results:
     - The cost remained the same at a constant 1772.95
 
 **Index 2:**
+```sql
+CREATE INDEX idx_favorites_username ON Favorites(Username);
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+![image](https://github.com/user-attachments/assets/1147fb41-6a95-44fe-b9bd-6c218383cc0a)
+
+- New Cost: 451.7, roughly the same
+- New Time: 5.288...5.291, approx 2 unit decrease from original time
+
+We are creating an index on the Username attribute of the Favorites table because this field is used as aggregation, and indexing it could potentially speed up this query by reducing the number of rows that need to be scanned.
 
 **Index 3:**
 
@@ -259,5 +270,17 @@ The results:
 **Index 1:**
 
 **Index 2:**
+```sql
+CREATE INDEX idx_favorites_username_recname_status ON Favorites(Username, RecName, Status);
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+![image](https://github.com/user-attachments/assets/088b391d-b8a0-4ea0-a404-e920c17818f5)
+
+- New Cost: 1772.95, roughly the same
+- New Time: 6.695…6.697, approx 0.4 unit decrease from original time
+
+We are creating an index on the these attributes of the Favorites table because these are used as aggregation or in the GROUP BY, ORDER BY clauses, and indexing it could potentially speed up this query by reducing the number of rows that need to be scanned.
 
 **Index 3:**
