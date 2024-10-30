@@ -1,4 +1,4 @@
- # Database Implementation and Indexing
+# Database Implementation and Indexing
 
 ## Relational Schema
 
@@ -150,3 +150,33 @@ limit 15;
 
 
 # Indexing
+
+## Subquery 1
+Default Index
+
+![image](https://github.com/user-attachments/assets/b90cf67e-465e-4f69-a84f-b9fde2594a5c)
+
+**Index 1: **
+```sql
+CREATE INDEX idx_recreation_recname_statename ON Recreation(RecName, StateName);
+Query OK, 0 rows affected (0.16 sec)
+Records: 0  Duplicates: 0  Warnings: 0```
+
+![image](https://github.com/user-attachments/assets/aee3623a-8bdc-4700-a44e-655065b3b9fb)
+
+```sql
+CREATE INDEX idx_favorites_recname_username ON Favorites(RecName, Username);
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+![image](https://github.com/user-attachments/assets/4553c206-76e6-4410-af06-7322ec2d3ccd)
+
+```sql
+CREATE INDEX idx_states_statename_region ON States(StateName, Region);
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+![image](https://github.com/user-attachments/assets/c8324a95-a620-421a-938c-b15b5c9067b2)
+
