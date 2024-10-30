@@ -220,8 +220,8 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 
 ## Subquery 3
 **Default Index**
-- Cost: 
-- Time: 
+- Cost: 1772.95
+- Time: 7.070..7.072
 
 ![9300171136708425d64930321ac61d30](https://github.com/user-attachments/assets/9645fec7-bdb6-421d-803f-ef9d242e225f)
 
@@ -239,6 +239,8 @@ Records: 0  Duplicates: 0  Warnings: 0
 ![image](https://github.com/user-attachments/assets/08efd5b3-5435-4024-81de-bd9cc3f1c932)
 
 The results:
+
+
     - The time for execution decreased somewhat, from 7.070..7.072 to 6.385..6.387
     - The cost remained the same at a constant 1772.95
 
