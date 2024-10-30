@@ -1,4 +1,4 @@
-# Database Implementation and Indexing
+ # Database Implementation and Indexing
 
 ## Relational Schema
 
@@ -90,7 +90,7 @@ CREATE TABLE Comments (
 
 **Subquery 1**
 
-Select the fifteen recreational activities with the most comments, organised by region (alphabetical ascending) and number of comments (descending).  
+Select the top 15 recreational activities with the most comments, in ascending order by state and descending order of total number of favorites.  
 ```sql
 SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
 FROM Recreation R
@@ -107,7 +107,7 @@ LIMIT 15;
 **Subquery 2**
 
 
-Select the total number of discounts and recname of recreational activities that offers the discounts
+Query the total number of discounts for each recreational activity that offers discounts (output is less than 15 rows).
 ```sql
 SELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
 FROM Recreation R
@@ -118,10 +118,9 @@ ORDER BY TotalDiscounts DESC;
 ![WechatIMG876](https://github.com/user-attachments/assets/ea5c77af-2dcf-40ef-9a1d-cacbd3a6a025)
 
 
-
 **Subquery 3**
 
-Select the the top 15 recreational activities's RecName, RecType, StateName, and total favorite count with the most favorites across all states(In DESC /descending)
+Select the the top 15 recreational activities's RecName, RecType, StateName, and total favorite count with the most favorites across all states in descending order.
 ```sql
 SELECT R.RecName, R.RecType, R.StateName, COUNT(F.Username) AS FavoriteCount
 FROM Recreation R
@@ -135,7 +134,7 @@ LIMIT 15;
 
 **Subquery 4**
 
-For 15 states and the region they occupy, select their name and region info and total number of recreations. Organise by number of recreations (descending).
+Query the top 15 states with their region and total number of recreations in descending order of total number of recreations.
 ```sql
 SELECT S.StateName, S.Region, COUNT(R.RecName) AS TotalRecreation
 FROM States S
@@ -158,6 +157,9 @@ CREATE INDEX idx_states_region ON States (Region);
 Query OK, 0 rows affected (0.13 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
+![image](https://github.com/user-attachments/assets/36ebdb0e-28c8-4ea8-b4f0-6a7f0ff81da7)
+
+
 We chose to create an index on the Region attribute of the States table because:\
 The Region column is used in the WHERE clause for filtering records. Indexing this attribute helps reduce the number of rows scanned when filtering for distinct regions across states. In this specific query, the Region is also part of the GROUP BY clause, which further benefits from an index when aggregating data by region.
 
@@ -177,6 +179,8 @@ CREATE INDEX idx_favorites_recname ON Favorites (RecName);
 Query OK, 0 rows affected (0.22 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
+![image](https://github.com/user-attachments/assets/71a7234c-0855-460f-ae1f-89d4fc030ede)
+
 We chose to create an index on the RecName attribute of the Favorites table because:\
 The RecName column is used in the JOIN condition with the Recreation table, making it a key candidate for indexing. This helps speed up the join operation between the two tables. The query frequently accesses RecName when counting total favorites for each recreation, and indexing helps in reducing the number of rows scanned during aggregation.
 
@@ -196,6 +200,8 @@ CREATE INDEX idx_discounts_recname ON Discounts (RecName);
 Query OK, 0 rows affected (0.19 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
+![image](https://github.com/user-attachments/assets/25b68889-2187-484a-bc87-da14e7c4ee48)
+
 We chose to create an index on the RecName attribute of the Discounts table because:\
 The RecName column is used in the JOIN clause with the Recreation table, so indexing it allows the query to perform faster lookups during the join operation.
 This query aggregates discounts by recreation name, and indexing RecName helps in efficiently counting the discounts for each recreational activity.
@@ -216,6 +222,8 @@ CREATE INDEX idx_recreation_statename ON Recreation (StateName);
 Query OK, 0 rows affected (0.19 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
+
+
 We chose to create an index on the StateName attribute of the Recreation table because:\
 The StateName column is frequently used in the JOIN operation between the Recreation and States tables. Indexing this column allows the query to quickly find recreation activities based on their associated state. This query aggregates the total number of recreation activities for each state and region, and indexing the StateName helps improve the speed of the aggregation process by reducing the time spent finding recreation records.
 
