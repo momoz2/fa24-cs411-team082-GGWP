@@ -153,6 +153,8 @@ limit 15;
 
 ## Subquery 1
 **Default Index**
+Cost: 802.05
+Time: 5.773
 
 ![image](https://github.com/user-attachments/assets/b90cf67e-465e-4f69-a84f-b9fde2594a5c)
 
