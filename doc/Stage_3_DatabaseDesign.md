@@ -188,15 +188,14 @@ Query OK, 0 rows affected (0.07 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
 
+- New Cost: 802.05
+- New Time: 6.489
+
 ![image](https://github.com/user-attachments/assets/c8324a95-a620-421a-938c-b15b5c9067b2)
 
 We chose to create a composite index on the StateName and Region columns in the States table. This decision was made because both fields are frequently used in the GROUP BY and ORDER BY clauses within the query, making them ideal candidates for indexing. By indexing these fields together, we aimed to speed up the sorting and grouping operations, reducing query execution time.
 
-we can observe from the EXPLAIN ANALYZE:
-- Actual Time: The actual time decreased from 7.198 to 6.489 seconds.
-- Cost: The cost remained roughly the same, around 802
-
   
 Findings and Explanation:
-the indexing strategy effectively optimizes the query by improving the speed of joins, aggregations, and sorting operations, resulting in faster execution times and lower resource usage
+The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly the same, around 802. The indexing strategy effectively optimizes the query by improving the speed of joins, aggregations, and sorting operations, resulting in faster execution times and lower resource usage
 
