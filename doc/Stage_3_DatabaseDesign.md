@@ -213,7 +213,9 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 
 ## Subquery 2
 **Default Index**
-
+- Cost: 802.25
+- Time: 7.004…7.006
+  
 **Index 1:**
 
 **Index 2:**
