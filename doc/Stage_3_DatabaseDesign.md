@@ -152,11 +152,11 @@ limit 15;
 # Indexing
 
 ## Subquery 1
-Default Index
+**Default Index**
 
 ![image](https://github.com/user-attachments/assets/b90cf67e-465e-4f69-a84f-b9fde2594a5c)
 
-**Index 1: **
+**Index 1:**
 ```sql
 CREATE INDEX idx_recreation_recname_statename ON Recreation(RecName, StateName);
 Query OK, 0 rows affected (0.16 sec)
