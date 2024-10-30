@@ -169,6 +169,10 @@ Records: 0  Duplicates: 0  Warnings: 0```
 
 Creating an index on the RecName and StateName attribute of the Recreation table because this field is used within the GROUP BY clause of the query, and indexing it could potentially speed up this frequently-used query by reducing the number of rows that need to be scanned.
 
+The results:
+    - The time for execution decreased somewhat, from 7.836..7.840 to 7.388..7.390
+    - The cost remained the same at a constant 802.05
+
 **Index 2:**
 ```sql
 CREATE INDEX idx_favorites_recname_username ON Favorites(RecName, Username);
