@@ -119,5 +119,4 @@ GROUP BY S.StateName, S.Region
 ORDER BY TotalRecreation DESC;
 ```
 
-![9561730317905_ pic](https://github.com/user-attachments/assets/e9b0cfa1-1fe7-4512-aa50-523e0f7009e2)
-![9571730317908_ pic](https://github.com/user-attachments/assets/b74611db-6a7b-46f9-82c2-f47877f70788)
+<img width="257" alt="image" src="https://github.com/user-attachments/assets/16761f46-bb54-4bd8-9c40-0531e7e9dcea">
