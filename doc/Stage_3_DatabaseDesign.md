@@ -305,3 +305,23 @@ Records: 0  Duplicates: 0  Warnings: 0
 We are creating an index on the these attributes of the Favorites table because these are used as aggregation or in the GROUP BY, ORDER BY clauses, and indexing it could potentially speed up this query by reducing the number of rows that need to be scanned.
 
 **Index 3:**
+
+```sql
+CREATE INDEX idx_states_region_statename ON States(Region, StateName);
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+- New Cost: 1772.95
+- New Time: 6.446 to 6.448
+
+![7a089ba339809f092341b1c9a0404dae](https://github.com/user-attachments/assets/9d881a54-e613-4697-b6f7-729c653450f6)
+
+ We chose to create a composite index on the Region and StateName columns in the States table. This decision was made because both fields are frequently used in GROUP BY and ORDER BY clauses within the query, making them ideal candidates for indexing. By indexing these fields together, we aimed to speed up the sorting and grouping operations, thereby reducing query execution time from the initial baseline.
+
+
+Findings and Explanation:
+The actual execution time decreased from 7.07 seconds to approximately 6.446 - 6.448 seconds after creating the composite index. This reduction indicates that the index provided a moderate improvement in query performance, particularly in handling the GROUP BY and ORDER BY operations. The cost is staying the same all the time around 1772.95. The indexing strategy effectively optimized the query by improving the speed of joins, aggregations, and sorting operations, leading to faster execution times and more efficient resource usage.
+
+
+
