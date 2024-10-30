@@ -183,13 +183,15 @@ CREATE INDEX idx_favorites_recname_username ON Favorites(RecName, Username);
 Query OK, 0 rows affected (0.14 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
+
+![image](https://github.com/user-attachments/assets/4553c206-76e6-4410-af06-7322ec2d3ccd)
+
 - New Cost: 802.05, roughly the same
 - New Time: 7.2, slight decrease from 7.840
 
 We are creating an index on the RecName attribute of the Recreation table because this field is used within the GROUP BY clause of the query, and indexing it could potentially speed up this frequently-used query by reducing the number of rows that need to be scanned.
 
 
-![image](https://github.com/user-attachments/assets/4553c206-76e6-4410-af06-7322ec2d3ccd)
 
 **Index 3:**
 ```sql
@@ -223,7 +225,18 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 
 
 **Index 2:**
+```sql
+CREATE INDEX idx_states_population_statename ON States(Population, StateName);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
 ![image](https://github.com/user-attachments/assets/e100e1a5-77fa-4a17-b76d-6cd6ef4843fd)
+
+- New Cost: 802.25, roughly the same
+- New Time: 6.309…6.311, approx 0.7 unit decrease from original time
+
+We are creating an index on these attributes of the States table due to usage in GROUP BY, and indexing it could potentially speed up this query by reducing the number of rows that need to be scanned.
 
 
 **Index 3:**
