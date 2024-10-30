@@ -91,14 +91,16 @@ CREATE TABLE Comments (
 **Subquery 1**
 Select the fifteen recreational activities with the most comments, organised by region (alphabetical ascending) and number of comments (descending).  
 ```
-SELECT R.RecName, S.Region, COUNT(C.CommentId) AS TotalComments 
-FROM Recreation R JOIN States S ON R.StateName = S.StateName 
-JOIN Comments C ON R.RecName = C.RecName 
-WHERE S.Region IN (SELECT DISTINCT Region FROM States) 
-GROUP BY R.RecName, S.Region 
-ORDER BY S.Region, TotalComments DESC LIMIT 5;
+SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
+FROM Recreation R
+JOIN Favorites F ON R.RecName = F.RecName
+JOIN States S ON R.StateName = S.StateName
+GROUP BY R.RecName, S.StateName
+ORDER BY S.StateName, TotalFavorites DESC
+LIMIT 15;
 ```
-![8691730236554_ pic](https://github.com/user-attachments/assets/506ae957-2446-482f-8b65-8116d0a877bd)
+![13101730319267_ pic](https://github.com/user-attachments/assets/eb157ada-1811-40ad-a164-8dabfdbd5709)
+
 
 
 **Subquery 2**
