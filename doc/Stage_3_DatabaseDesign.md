@@ -182,6 +182,13 @@ Records: 0  Duplicates: 0  Warnings: 0
 - New Cost: 802.05
 - New Time: 7.2
 
+Creating an index on the RecName and StateName attribute of the Recreation table because this field is used within the GROUP BY clause of the query, and indexing it could potentially speed up this frequently-used query by reducing the number of rows that need to be scanned.
+
+The results:
+    - The time for execution decreased somewhat, from 7.836..7.840 to 7.388..7.390
+    - The cost remained the same at a constant 802.05
+
+
 
 ![image](https://github.com/user-attachments/assets/4553c206-76e6-4410-af06-7322ec2d3ccd)
 
@@ -203,3 +210,35 @@ We chose to create a composite index on the StateName and Region columns in the 
 Findings and Explanation:
 The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly the same, around 802. The indexing strategy effectively optimizes the query by improving the speed of joins, aggregations, and sorting operations, resulting in faster execution times and lower resource usage
 
+
+
+## Subquery 2
+**Default Index**
+
+**Index 1:**
+
+**Index 2:**
+
+**Index 3:**
+
+
+
+## Subquery 3
+**Default Index**
+
+**Index 1:**
+
+**Index 2:**
+
+**Index 3:**
+
+
+
+## Subquery 4
+**Default Index**
+
+**Index 1:**
+
+**Index 2:**
+
+**Index 3:**
