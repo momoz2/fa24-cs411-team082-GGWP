@@ -69,28 +69,26 @@ CREATE TABLE Comments (
 );
 
 ```
-#Insert 1000 rows data into those tables.
+## Inserting Data
 ![WechatIMG855](https://github.com/user-attachments/assets/fea4d8a4-c863-415f-9fb5-5a02a894f800)
-
 ![WechatIMG856](https://github.com/user-attachments/assets/4b18a538-394f-497d-8e5e-684a5ad009da)
+
+
+## Advanced Query Implementation and Testing 
+**Subquery 1**
 ```
-
-
-
-#advanced query implementation and test 
-#1
 SELECT R.RecName, S.Region, COUNT(C.CommentId) AS TotalComments 
 FROM Recreation R JOIN States S ON R.StateName = S.StateName 
 JOIN Comments C ON R.RecName = C.RecName 
 WHERE S.Region IN (SELECT DISTINCT Region FROM States) 
 GROUP BY R.RecName, S.Region 
 ORDER BY S.Region, TotalComments DESC LIMIT 5;
-
 ```
 ![8691730236554_ pic](https://github.com/user-attachments/assets/506ae957-2446-482f-8b65-8116d0a877bd)
-```
 
-#2 
+
+**Subquery 2**
+```
 SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
 FROM Recreation R
 JOIN Favorites F ON R.RecName = F.RecName
@@ -100,21 +98,20 @@ ORDER BY S.StateName, TotalFavorites DESC
 LIMIT 5;
 ```
 ![8731730236895_ pic](https://github.com/user-attachments/assets/1b0cacc7-fd90-4b44-9a71-f2cc783cceaf)
+
+
+**Subquery 3**
 ```
-
-#3
-
 ELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
 FROM Recreation R
 JOIN Discounts D ON R.RecName = D.RecName
 GROUP BY R.RecName
 ORDER BY TotalDiscounts DESC;
-
-
 ```
 ![8761730237084_ pic](https://github.com/user-attachments/assets/cfe7d47a-a9d2-4060-a85f-5752d35265eb)
+
+**Subquery 4**
 ```
-#4 
 SELECT S.StateName, S.Region, COUNT(R.RecName) AS TotalRecreation
 FROM States S
 JOIN Recreation R ON S.StateName = R.StateName
