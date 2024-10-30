@@ -106,7 +106,6 @@ LIMIT 15;
 
 **Subquery 2**
 
-
 Query the total number of discounts for each recreational activity that offers discounts (output is less than 15 rows).
 ```sql
 SELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
@@ -176,6 +175,9 @@ CREATE INDEX idx_favorites_recname_username ON Favorites(RecName, Username);
 Query OK, 0 rows affected (0.14 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
+New Cost: 802.05
+New Time: 7.2
+
 
 ![image](https://github.com/user-attachments/assets/4553c206-76e6-4410-af06-7322ec2d3ccd)
 
