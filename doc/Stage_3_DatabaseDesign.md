@@ -135,16 +135,18 @@ LIMIT 15;
 
 **Subquery 4**
 
-For each state and the region they occupy, select their name and region info and total number of recreations. Organise by number of recreations (descending).
+For 15 states and the region they occupy, select their name and region info and total number of recreations. Organise by number of recreations (descending).
 ```sql
 SELECT S.StateName, S.Region, COUNT(R.RecName) AS TotalRecreation
 FROM States S
-JOIN Recreation R ON S.StateName = R.StateName
+JOIN Recreation R ON Ss.StateName = R.StateName
 GROUP BY S.StateName, S.Region
-ORDER BY TotalRecreation DESC;
+ORDER BY TotalRecreation DESC
+limit 15;
 ```
+![WechatIMG876](https://github.com/user-attachments/assets/6cd8305c-5673-4002-ab7c-64b84d3f12e2)
 
-<img width="257" alt="image" src="https://github.com/user-attachments/assets/16761f46-bb54-4bd8-9c40-0531e7e9dcea">
+
 
 
 # Indexing
