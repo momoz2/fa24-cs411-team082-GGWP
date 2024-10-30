@@ -214,8 +214,8 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 
 **Index 2:**
 
-**Index 3:**
 
+**Index 3:**
 
 
 ## Subquery 3
@@ -224,11 +224,27 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 ![9300171136708425d64930321ac61d30](https://github.com/user-attachments/assets/9645fec7-bdb6-421d-803f-ef9d242e225f)
 
 
+
 **Index 1:**
 
 **Index 2:**
 
 **Index 3:**
+```sql
+CREATE INDEX idx_recreation_statename_recname ON Recreation(StateName, RecName);
+Query OK, 0 rows affected (0.16 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+- New Cost: 451.7
+- New Time: 5.233
+
+![6af566d84ffe76055ccceebbf402af6f](https://github.com/user-attachments/assets/75b301fa-b174-4a4c-a666-50095fcb1a06)
+
+We chose to create a composite index on the StateName and RecName columns in the Recreation table. This decision was made because both fields are frequently used in GROUP BY and ORDER BY clauses within the query, making them ideal candidates for indexing. By indexing these fields together, we aimed to speed up the sorting and grouping operations, thereby reducing query execution time.
+  
+Findings and Explanation:
+The actual execution time decreased from 5.288 seconds to 5.233 seconds, showing a measurable improvement. The query cost remained roughly the same, at around 451. The indexing strategy effectively optimized the query by improving the speed of joins, aggregations, and sorting operations, leading to faster execution times and more efficient resource usage.
 
 
 
