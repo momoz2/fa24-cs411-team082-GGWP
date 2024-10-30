@@ -161,9 +161,10 @@ limit 15;
 CREATE INDEX idx_recreation_recname_statename ON Recreation(RecName, StateName);
 Query OK, 0 rows affected (0.16 sec)
 Records: 0  Duplicates: 0  Warnings: 0```
-
+```
 ![image](https://github.com/user-attachments/assets/aee3623a-8bdc-4700-a44e-655065b3b9fb)
 
+**Index 2:**
 ```sql
 CREATE INDEX idx_favorites_recname_username ON Favorites(RecName, Username);
 Query OK, 0 rows affected (0.14 sec)
@@ -172,6 +173,7 @@ Records: 0  Duplicates: 0  Warnings: 0
 
 ![image](https://github.com/user-attachments/assets/4553c206-76e6-4410-af06-7322ec2d3ccd)
 
+**Index 3:**
 ```sql
 CREATE INDEX idx_states_statename_region ON States(StateName, Region);
 Query OK, 0 rows affected (0.07 sec)
