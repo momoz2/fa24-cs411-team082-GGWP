@@ -224,28 +224,26 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 
 ## Subquery 3
 **Default Index**
-- Cost: 451.7
-- Time: 7.434...7.436
+- Cost: 451.70
+- Time: 7.434..7.436
 
-![9300171136708425d64930321ac61d30](https://github.com/user-attachments/assets/9645fec7-bdb6-421d-803f-ef9d242e225f)
+![image](https://github.com/user-attachments/assets/f2f7f573-9ad3-4642-b574-4603a63bf25e)
 
 **Index 1:**
 
-We added an index on StateName and Population by:
+We added an index on RecName, RecType and StateName by:
 
 ```sql
-CREATE INDEX idx_states_statename_population ON States(StateName, Population);
-Query OK, 0 rows affected (0.11 sec)
+CREATE INDEX idx_recreation_recname_rectype_statename ON Recreation(RecName, RecType, StateName);
+Query OK, 0 rows affected (0.21 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
-
-![image](https://github.com/user-attachments/assets/08efd5b3-5435-4024-81de-bd9cc3f1c932)
+![image](https://github.com/user-attachments/assets/aa21934d-d16a-4fe3-91b3-83a9174522fa)
 
 The results:
 
-
-    - The time for execution decreased somewhat, from 7.070..7.072 to 6.385..6.387
-    - The cost remained the same at a constant 1772.95
+    - The time for execution decreased, from 7.434..7.436 to 6.412..6.414
+    - The cost remained the same at a constant 451.70
 
 **Index 2:**
 ```sql
@@ -289,6 +287,20 @@ The actual execution time decreased from 5.288 seconds to 5.233 seconds, showing
 <img width="1392" alt="image" src="https://github.com/user-attachments/assets/b729a75d-53ca-4351-b670-c449119a7b89">
 
 **Index 1:**
+We added an index on StateName and Population by:
+
+```sql
+CREATE INDEX idx_states_statename_population ON States(StateName, Population);
+Query OK, 0 rows affected (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+![image](https://github.com/user-attachments/assets/08efd5b3-5435-4024-81de-bd9cc3f1c932)
+
+The results:
+
+    - The time for execution decreased somewhat, from 7.070..7.072 to 6.385..6.387
+    - The cost remained the same at a constant 1772.95
 
 **Index 2:**
 ```sql
