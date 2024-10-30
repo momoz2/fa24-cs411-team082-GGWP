@@ -74,6 +74,13 @@ CREATE TABLE Comments (
 ![WechatIMG856](https://github.com/user-attachments/assets/4b18a538-394f-497d-8e5e-684a5ad009da)
 
 
+## At least 1000 rows in our tables
+
+![12111730233715_ pic](https://github.com/user-attachments/assets/06fc5a99-3ebd-449f-8522-eb1b159bc216)
+![12121730233732_ pic](https://github.com/user-attachments/assets/dfc74918-5386-4738-8229-f38386b23538)
+
+
+
 ## Advanced Query Implementation and Testing 
 **Subquery 1**
 ```
