@@ -157,12 +157,16 @@ limit 15;
 ![image](https://github.com/user-attachments/assets/b90cf67e-465e-4f69-a84f-b9fde2594a5c)
 
 **Index 1:**
+
+We added an index on RecName and StateName by:
 ```sql
 CREATE INDEX idx_recreation_recname_statename ON Recreation(RecName, StateName);
 Query OK, 0 rows affected (0.16 sec)
 Records: 0  Duplicates: 0  Warnings: 0```
 ```
 ![image](https://github.com/user-attachments/assets/aee3623a-8bdc-4700-a44e-655065b3b9fb)
+
+Creating an index on the RecName and StateName attribute of the Recreation table because this field is used within the GROUP BY clause of the query, and indexing it could potentially speed up this frequently-used query by reducing the number of rows that need to be scanned.
 
 **Index 2:**
 ```sql
