@@ -231,7 +231,7 @@ Observations from the `EXPLAIN ANALYZE` output:\
 The query now performs a "Covering index lookup" on the Recreation table using idx_recreation_statename, which significantly reduces the time and cost associated with finding recreation activities based on StateName.
 
 Before the index: The query had to perform a full scan on the Recreation table to match StateName with the States table.\
-After the index: The indexed lookup speeds up the process, as it can directly retrieve the relevant recreation records associated with each state, reducing the time spent in the join operation.\
+After the index: The indexed lookup speeds up the process, as it can directly retrieve the relevant recreation records associated with each state, reducing the time spent in the join operation.
 
 Performance Impact: \
 Execution time: Decreased significantly due to the index improving the efficiency of the nested loop join between the States and Recreation tables.\
