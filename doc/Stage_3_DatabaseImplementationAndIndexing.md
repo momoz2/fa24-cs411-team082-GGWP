@@ -1,4 +1,4 @@
-# Stage Three Database Design
+# Database Implementation and Indexing
 
 ## DDL Table Commands
 ```
