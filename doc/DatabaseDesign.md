@@ -217,7 +217,7 @@ Records: 0  Duplicates: 0  Warnings: 0
 We chose to create an index on the StateName attribute of the Recreation table because:\
 The StateName column is frequently used in the JOIN operation between the Recreation and States tables. Indexing this column allows the query to quickly find recreation activities based on their associated state. This query aggregates the total number of recreation activities for each state and region, and indexing the StateName helps improve the speed of the aggregation process by reducing the time spent finding recreation records.
 
-Observations from the EXPLAIN ANALYZE output:\
+Observations from the `EXPLAIN ANALYZE` output:\
 The query now performs a "Covering index lookup" on the Recreation table using idx_recreation_statename, which significantly reduces the time and cost associated with finding recreation activities based on StateName.
 
 Before the index: The query had to perform a full scan on the Recreation table to match StateName with the States table.\
