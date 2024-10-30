@@ -1,12 +1,17 @@
-DROP DATABASE IF EXISTS Rec;
+# Stage One Implementation
+
+## DDL Table Commands
+```
 CREATE DATABASE Rec;
 USE Rec;
 
+-- Users table
 CREATE TABLE Users(
     Username VARCHAR(255) PRIMARY KEY, 
     Email VARCHAR(255)
 );
 
+-- States table
 CREATE TABLE States (
     StateName VARCHAR(225) PRIMARY KEY,
     CityCount VARCHAR(225),
@@ -15,6 +20,7 @@ CREATE TABLE States (
     TotalArea VARCHAR(225)
 );
 
+-- Recreations table
 CREATE TABLE Recreation (
     RecName VARCHAR(225) PRIMARY KEY,
     RecType VARCHAR(225),
@@ -23,6 +29,7 @@ CREATE TABLE Recreation (
     FOREIGN KEY (StateName) REFERENCES States(StateName)
 );
 
+-- Discounts table
 CREATE TABLE Discounts (
     DiscountId VARCHAR(255) PRIMARY KEY,
     RecName VARCHAR(255),
@@ -40,6 +47,7 @@ CREATE TABLE Provides (
     FOREIGN KEY (DiscountId) REFERENCES Discounts(DiscountId)
 );
 
+-- Favorites table
 CREATE TABLE Favorites (
     Username VARCHAR(255),
     RecName VARCHAR(255),
@@ -49,6 +57,7 @@ CREATE TABLE Favorites (
     FOREIGN KEY (RecName) REFERENCES Recreation(RecName)
 );
 
+-- Comments table
 CREATE TABLE Comments (
     CommentId REAL PRIMARY KEY,
     Username VARCHAR(255),
@@ -114,4 +123,6 @@ ORDER BY TotalRecreation DESC;
 
 ![8791730237254_ pic](https://github.com/user-attachments/assets/5f36ba04-377f-46d8-baee-d9851de76aa1)
 ![8801730237254_ pic](https://github.com/user-attachments/assets/cbbe26c6-a89b-4dd7-959e-000bd184e1be)
+
+```
 
