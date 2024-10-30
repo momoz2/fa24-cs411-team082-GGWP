@@ -215,7 +215,9 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 **Default Index**
 - Cost: 802.25
 - Time: 7.004…7.006
-  
+
+![image](https://github.com/user-attachments/assets/b0a71890-6433-4885-a03f-269a74536c41)
+
 **Index 1:**
 ![image](https://github.com/user-attachments/assets/b549d57f-b6d3-4789-9412-5b23a179bede)
 
