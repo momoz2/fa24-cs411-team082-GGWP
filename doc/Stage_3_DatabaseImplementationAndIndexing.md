@@ -1,6 +1,6 @@
-#Stage One Implementation#
+# Stage One Implementation
 
-##DDL Table Commands##
+## DDL Table Commands
 ```
 CREATE DATABASE Rec;
 USE Rec;
