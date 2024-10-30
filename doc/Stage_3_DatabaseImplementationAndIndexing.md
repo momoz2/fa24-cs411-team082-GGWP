@@ -1,7 +1,12 @@
 # Database Implementation and Indexing
 
+## Tables in our terminal
+
+![13061730318691_ pic](https://github.com/user-attachments/assets/21fbc00f-4989-4c20-b0ca-ff91a77317a7)
+
+
 ## DDL Table Commands
-```sql
+```
 CREATE DATABASE Rec;
 USE Rec;
 
@@ -67,11 +72,13 @@ CREATE TABLE Comments (
     FOREIGN KEY (Username) REFERENCES Users(Username),
     FOREIGN KEY (RecName) REFERENCES Recreation(RecName)
 );
-
 ```
+
+
 ## Inserting Data
-![WechatIMG855](https://github.com/user-attachments/assets/fea4d8a4-c863-415f-9fb5-5a02a894f800)
-![WechatIMG856](https://github.com/user-attachments/assets/4b18a538-394f-497d-8e5e-684a5ad009da)
+![13071730318715_ pic](https://github.com/user-attachments/assets/9244cea4-0d4e-4f5c-a2ac-6ced6bc1a197)
+![13081730318752_ pic](https://github.com/user-attachments/assets/4adda4ce-5cf4-417f-8cd0-b78d8da48ca1)
+
 
 
 ## At least 1000 rows in our tables
