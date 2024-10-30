@@ -1,4 +1,4 @@
-# Stage One Implementation
+# Stage Three Database Design
 
 ## DDL Table Commands
 ```
