@@ -242,8 +242,8 @@ Records: 0  Duplicates: 0  Warnings: 0
 
 The results:
 
-    - The time for execution decreased, from 7.434..7.436 to 6.412..6.414
-    - The cost remained the same at a constant 451.70
+- The time for execution decreased, from 7.434..7.436 to 6.412..6.414
+- The cost remained the same at a constant 451.70
 
 **Index 2:**
 ```sql
@@ -299,8 +299,8 @@ Records: 0  Duplicates: 0  Warnings: 0
 
 The results:
 
-    - The time for execution decreased somewhat, from 7.070..7.072 to 6.385..6.387
-    - The cost remained the same at a constant 1772.95
+- The time for execution decreased somewhat, from 7.070..7.072 to 6.385..6.387
+- The cost remained the same at a constant 1772.95
 
 **Index 2:**
 ```sql
