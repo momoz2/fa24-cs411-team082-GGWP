@@ -11,7 +11,7 @@ CREATE TABLE Users(
     Email VARCHAR(255)
 );
 
--- States table
+-- 1. States table
 CREATE TABLE States (
     StateName VARCHAR(225) PRIMARY KEY,
     CityCount VARCHAR(225),
@@ -20,7 +20,7 @@ CREATE TABLE States (
     TotalArea VARCHAR(225)
 );
 
--- Recreations table
+-- 2. Recreations table
 CREATE TABLE Recreation (
     RecName VARCHAR(225) PRIMARY KEY,
     RecType VARCHAR(225),
@@ -29,7 +29,7 @@ CREATE TABLE Recreation (
     FOREIGN KEY (StateName) REFERENCES States(StateName)
 );
 
--- Discounts table
+-- 3. Discounts table
 CREATE TABLE Discounts (
     DiscountId VARCHAR(255) PRIMARY KEY,
     RecName VARCHAR(255),
@@ -47,7 +47,7 @@ CREATE TABLE Provides (
     FOREIGN KEY (DiscountId) REFERENCES Discounts(DiscountId)
 );
 
--- Favorites table
+-- 4. Favorites table
 CREATE TABLE Favorites (
     Username VARCHAR(255),
     RecName VARCHAR(255),
@@ -57,7 +57,7 @@ CREATE TABLE Favorites (
     FOREIGN KEY (RecName) REFERENCES Recreation(RecName)
 );
 
--- Comments table
+-- 5. Comments table
 CREATE TABLE Comments (
     CommentId REAL PRIMARY KEY,
     Username VARCHAR(255),
@@ -74,8 +74,9 @@ CREATE TABLE Comments (
 ![WechatIMG856](https://github.com/user-attachments/assets/4b18a538-394f-497d-8e5e-684a5ad009da)
 
 
-## Advanced Query Implementation and Testing 
+## Advanced Query Implementation, Testing and Analysis
 **Subquery 1**
+Select the fifteen recreational activities with the most comments, organised by region (alphabetical ascending) and number of comments (descending).  
 ```
 SELECT R.RecName, S.Region, COUNT(C.CommentId) AS TotalComments 
 FROM Recreation R JOIN States S ON R.StateName = S.StateName 
@@ -88,6 +89,7 @@ ORDER BY S.Region, TotalComments DESC LIMIT 5;
 
 
 **Subquery 2**
+Select the fifteen recreational activities with the most favorites, organised by region (alphabetical ascending) and number of favorites (descending).
 ```
 SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
 FROM Recreation R
@@ -101,8 +103,9 @@ LIMIT 5;
 
 
 **Subquery 3**
+Select the recreation activities with the most discounts, organised by number of discounts (descending).
 ```
-ELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
+SELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
 FROM Recreation R
 JOIN Discounts D ON R.RecName = D.RecName
 GROUP BY R.RecName
@@ -111,6 +114,7 @@ ORDER BY TotalDiscounts DESC;
 ![8761730237084_ pic](https://github.com/user-attachments/assets/cfe7d47a-a9d2-4060-a85f-5752d35265eb)
 
 **Subquery 4**
+For each state and the region they occupy, select their name and region info and total number of recreations. Organise by number of recreations (descending).
 ```
 SELECT S.StateName, S.Region, COUNT(R.RecName) AS TotalRecreation
 FROM States S
