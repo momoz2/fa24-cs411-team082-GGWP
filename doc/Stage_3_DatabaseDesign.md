@@ -150,7 +150,11 @@ limit 15;
 
 
 # Indexing
+
+## Subquery 1
+
 Cost of Subquery Without Index
+
 ![image](https://github.com/user-attachments/assets/36ebdb0e-28c8-4ea8-b4f0-6a7f0ff81da7)
 
 **Index 1: idx_states_region on the States table**
