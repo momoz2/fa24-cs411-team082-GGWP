@@ -149,93 +149,81 @@ ORDER BY TotalRecreation DESC;
 
 
 # Indexing
+
+**Index 1: idx_states_region on the States table**
 ```sql
 CREATE INDEX idx_states_region ON States (Region);
 Query OK, 0 rows affected (0.13 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
-Index 1: idx_states_region on the States table
-We added an index on Region in the States table by using:
-
 We chose to create an index on the Region attribute of the States table because:
+The Region column is used in the WHERE clause for filtering records. Indexing this attribute helps reduce the number of rows scanned when filtering for distinct regions across states. In this specific query, the Region is also part of the GROUP BY clause, which further benefits from an index when aggregating data by region.
 
-The Region column is used in the WHERE clause for filtering records.
-Indexing this attribute helps reduce the number of rows scanned when filtering for distinct regions across states.
-In this specific query, the Region is also part of the GROUP BY clause, which further benefits from an index when aggregating data by region.
-Observations from the EXPLAIN ANALYZE output:
-
+Observations from the `EXPLAIN ANALYZE` output:
 The total execution time decreased slightly after applying the index, improving the query's efficiency when scanning the States table.
 The query now performs an "Index lookup" on States using idx_states_region, which reduces the cost of scanning the table.
+
 Before the index: The query had to perform a full table scan on the States table to filter by region.
 After the index: The query uses an index range scan to find matching regions, which decreases the number of rows scanned.
+
 Performance Impact:
-
 Execution time: Improved slightly, especially when filtering distinct regions.
-Cost reduction: The overall cost of scanning the States table was reduced, as evidenced by the shift from a full table scan to an indexed lookup.
+Cost reduction: The overall cost of scanning the States table was reduced, shown by the shift from a full table scan to an indexed lookup.
 
+**Index 2: idx_favorites_recname on the Favorites table**
 ```sql
 CREATE INDEX idx_favorites_recname ON Favorites (RecName);
 Query OK, 0 rows affected (0.22 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
-Index 2: idx_favorites_recname on the Favorites table
-We added an index on RecName in the Favorites table by using:
-
 We chose to create an index on the RecName attribute of the Favorites table because:
+The RecName column is used in the JOIN condition with the Recreation table, making it a key candidate for indexing. This helps speed up the join operation between the two tables. The query frequently accesses RecName when counting total favorites for each recreation, and indexing helps in reducing the number of rows scanned during aggregation.
 
-The RecName column is used in the JOIN condition with the Recreation table, making it a key candidate for indexing. This helps speed up the join operation between the two tables.
-The query frequently accesses RecName when counting total favorites for each recreation, and indexing helps in reducing the number of rows scanned during aggregation.
-Observations from the EXPLAIN ANALYZE output:
+Observations from the `EXPLAIN ANALYZE` output:
+The query now performs a "Covering index scan" on Favorites using idx_favorites_recname, which significantly improved the efficiency of the join operation with the Recreation table. The Nested loop inner join operation's actual time was reduced as the query was able to quickly locate matching RecName values through the index rather than performing a full scan. 
 
-The query now performs a "Covering index scan" on Favorites using idx_favorites_recname, which significantly improved the efficiency of the join operation with the Recreation table.
-The Nested loop inner join operation's actual time was reduced as the query was able to quickly locate matching RecName values through the index rather than performing a full scan.
 Before the index: The query needed to perform a full table scan to find matching RecName values between Favorites and Recreation.
 After the index: The index lookup improved the performance by directly retrieving the relevant records using the index, significantly reducing query execution time.
-Performance Impact:
 
+Performance Impact:
 Execution time: Decreased noticeably, especially in the nested loop join between Favorites and Recreation, as shown in the "Covering index scan" step.
 Cost reduction: The query cost decreased by optimizing how records are fetched in the join, as evidenced by the shift from a full scan to an index lookup.
 
+**Index 3: idx_discounts_recname on the Discounts table**
 ```sql
 CREATE INDEX idx_discounts_recname ON Discounts (RecName);
 Query OK, 0 rows affected (0.19 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
-Index 3: idx_discounts_recname on the Discounts table
-We added an index on RecName in the Discounts table by using:
-
 We chose to create an index on the RecName attribute of the Discounts table because:
-
 The RecName column is used in the JOIN clause with the Recreation table, so indexing it allows the query to perform faster lookups during the join operation.
 This query aggregates discounts by recreation name, and indexing RecName helps in efficiently counting the discounts for each recreational activity.
-Observations from the EXPLAIN ANALYZE output:
 
+Observations from the `EXPLAIN ANALYZE` output:
 The query now performs a "Covering index scan" on Discounts using idx_discounts_recname, which drastically reduces the cost of fetching RecName from the Discounts table during the join with Recreation.
+
 Before the index: The query had to scan more rows to find matching RecName values, resulting in higher costs for the join operation.
 After the index: The query uses an index scan on Discounts, allowing for a much faster match on RecName values, improving the performance of the JOIN operation.
-Performance Impact:
 
+Performance Impact:
 Execution time: Decreased significantly, especially for the nested loop join between Discounts and Recreation.
 Cost reduction: The cost of the join operation decreased, as seen from the efficient index scan on RecName rather than performing a full table scan.
 
+**Index 4: idx_recreation_statename on the Recreation table**
 ```sql
 CREATE INDEX idx_recreation_statename ON Recreation (StateName);
 Query OK, 0 rows affected (0.19 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
-Index 4: idx_recreation_statename on the Recreation table
-We added an index on StateName in the Recreation table by using:
-
 We chose to create an index on the StateName attribute of the Recreation table because:
+The StateName column is frequently used in the JOIN operation between the Recreation and States tables. Indexing this column allows the query to quickly find recreation activities based on their associated state. This query aggregates the total number of recreation activities for each state and region, and indexing the StateName helps improve the speed of the aggregation process by reducing the time spent finding recreation records.
 
-The StateName column is frequently used in the JOIN operation between the Recreation and States tables. Indexing this column allows the query to quickly find recreation activities based on their associated state.
-This query aggregates the total number of recreation activities for each state and region, and indexing the StateName helps improve the speed of the aggregation process by reducing the time spent finding recreation records.
 Observations from the EXPLAIN ANALYZE output:
-
 The query now performs a "Covering index lookup" on the Recreation table using idx_recreation_statename, which significantly reduces the time and cost associated with finding recreation activities based on StateName.
+
 Before the index: The query had to perform a full scan on the Recreation table to match StateName with the States table.
 After the index: The indexed lookup speeds up the process, as it can directly retrieve the relevant recreation records associated with each state, reducing the time spent in the join operation.
-Performance Impact:
 
+Performance Impact:
 Execution time: Decreased significantly due to the index improving the efficiency of the nested loop join between the States and Recreation tables.
 Cost reduction: The overall cost of the join operation decreased, as seen in the lower cost associated with the indexed scan compared to a full table scan.
