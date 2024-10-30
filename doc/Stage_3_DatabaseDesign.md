@@ -1,4 +1,4 @@
-# Database Implementation and Indexing
+ff# Database Implementation and Indexing
 
 ## Relational Schema
 
@@ -174,8 +174,8 @@ Records: 0  Duplicates: 0  Warnings: 0```
 Creating an index on the RecName and StateName attribute of the Recreation table because this field is used within the GROUP BY clause of the query, and indexing it could potentially speed up this frequently-used query by reducing the number of rows that need to be scanned.
 
 The results:
-    - The time for execution decreased somewhat, from 7.836..7.840 to 7.388..7.390
-    - The cost remained the same at a constant 802.05
+- The time for execution decreased somewhat, from 7.836..7.840 to 7.388..7.390
+- The cost remained the same at a constant 802.05
 
 **Index 2:**
 ```sql
@@ -219,8 +219,18 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 ![image](https://github.com/user-attachments/assets/b0a71890-6433-4885-a03f-269a74536c41)
 
 **Index 1:**
+
+```sql
+CREATE INDEX idx_comments_recname_commentid ON Comments(RecName, CommentId);
+Query OK, 0 rows affected (0.24 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
 ![image](https://github.com/user-attachments/assets/b549d57f-b6d3-4789-9412-5b23a179bede)
 
+The results:
+- The time for execution decreased somewhat, from 7.004…7.006 to 6.306..6.308
+- The cost remained the same at a constant 802.05
 
 **Index 2:**
 ![image](https://github.com/user-attachments/assets/e100e1a5-77fa-4a17-b76d-6cd6ef4843fd)
