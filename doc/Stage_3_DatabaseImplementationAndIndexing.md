@@ -1,5 +1,10 @@
 # Database Implementation and Indexing
 
+## Tables in our terminal
+
+![13061730318691_ pic](https://github.com/user-attachments/assets/21fbc00f-4989-4c20-b0ca-ff91a77317a7)
+
+
 ## DDL Table Commands
 ```
 CREATE DATABASE Rec;
@@ -67,11 +72,19 @@ CREATE TABLE Comments (
     FOREIGN KEY (Username) REFERENCES Users(Username),
     FOREIGN KEY (RecName) REFERENCES Recreation(RecName)
 );
-
 ```
+
+
 ## Inserting Data
-![WechatIMG855](https://github.com/user-attachments/assets/fea4d8a4-c863-415f-9fb5-5a02a894f800)
-![WechatIMG856](https://github.com/user-attachments/assets/4b18a538-394f-497d-8e5e-684a5ad009da)
+![13071730318715_ pic](https://github.com/user-attachments/assets/9244cea4-0d4e-4f5c-a2ac-6ced6bc1a197)
+![13081730318752_ pic](https://github.com/user-attachments/assets/4adda4ce-5cf4-417f-8cd0-b78d8da48ca1)
+
+
+
+## At least 1000 rows in our tables
+
+![12111730233715_ pic](https://github.com/user-attachments/assets/06fc5a99-3ebd-449f-8522-eb1b159bc216)
+![12121730233732_ pic](https://github.com/user-attachments/assets/dfc74918-5386-4738-8229-f38386b23538)
 
 
 ## Advanced Query Implementation, Testing and Analysis
@@ -123,5 +136,4 @@ GROUP BY S.StateName, S.Region
 ORDER BY TotalRecreation DESC;
 ```
 
-![9561730317905_ pic](https://github.com/user-attachments/assets/e9b0cfa1-1fe7-4512-aa50-523e0f7009e2)
-![9571730317908_ pic](https://github.com/user-attachments/assets/b74611db-6a7b-46f9-82c2-f47877f70788)
+<img width="257" alt="image" src="https://github.com/user-attachments/assets/16761f46-bb54-4bd8-9c40-0531e7e9dcea">
