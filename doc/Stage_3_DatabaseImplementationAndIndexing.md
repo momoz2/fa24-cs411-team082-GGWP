@@ -82,14 +82,15 @@ CREATE TABLE Comments (
 
 
 ## At least 1000 rows in at least 3 tables
-We have 2,002 users and 3,952 recreation activities and 1,001 favourites
+We have 2,002 users, 3,952 recreation activities, 1,001 favorites, 1,000 comments.
 ![12111730233715_ pic](https://github.com/user-attachments/assets/06fc5a99-3ebd-449f-8522-eb1b159bc216)
-We have 1,000 comments
 ![12121730233732_ pic](https://github.com/user-attachments/assets/dfc74918-5386-4738-8229-f38386b23538)
 
 
 ## Advanced Query Implementation, Testing and Analysis
+
 **Subquery 1**
+
 Select the fifteen recreational activities with the most comments, organised by region (alphabetical ascending) and number of comments (descending).  
 ```sql
 SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
@@ -105,6 +106,7 @@ LIMIT 15;
 
 
 **Subquery 2**
+
 Select the fifteen recreational activities with the most favorites, organised by region (alphabetical ascending) and number of favorites (descending).
 ```sql
 SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
@@ -119,6 +121,7 @@ LIMIT 5;
 
 
 **Subquery 3**
+
 Select the recreation activities with the most discounts, organised by number of discounts (descending).
 ```sql
 SELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
@@ -130,6 +133,7 @@ ORDER BY TotalDiscounts DESC;
 ![8761730237084_ pic](https://github.com/user-attachments/assets/cfe7d47a-a9d2-4060-a85f-5752d35265eb)
 
 **Subquery 4**
+
 For each state and the region they occupy, select their name and region info and total number of recreations. Organise by number of recreations (descending).
 ```sql
 SELECT S.StateName, S.Region, COUNT(R.RecName) AS TotalRecreation
