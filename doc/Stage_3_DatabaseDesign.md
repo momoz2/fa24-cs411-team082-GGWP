@@ -106,15 +106,19 @@ LIMIT 15;
 
 **Subquery 2**
 
-Query the total number of discounts for each recreational activity that offers discounts (output is less than 15 rows).
+Query the total number of comments for each recreational activity across different states (output is at least 15 rows).
 ```sql
-SELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
+SELECT R.RecName, S.StateName, COUNT(C.CommentId) AS TotalComments
 FROM Recreation R
-JOIN Discounts D ON R.RecName = D.RecName
-GROUP BY R.RecName
-ORDER BY TotalDiscounts DESC;
+JOIN Comments C ON R.RecName = C.RecName
+JOIN States S ON R.StateName = S.StateName
+GROUP BY R.RecName, S.StateName
+ORDER BY TotalComments DESC
+LIMIT 15;
 ```
-![WechatIMG876](https://github.com/user-attachments/assets/ea5c77af-2dcf-40ef-9a1d-cacbd3a6a025)
+![14011730330319_ pic](https://github.com/user-attachments/assets/9eeafbc2-ffeb-454a-a9fc-159060d3ea57)
+
+
 
 
 **Subquery 3**
