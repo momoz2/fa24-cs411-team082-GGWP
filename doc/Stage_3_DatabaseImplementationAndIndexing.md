@@ -1,6 +1,7 @@
-DROP DATABASE IF EXISTS Rec;
+```
 CREATE DATABASE Rec;
 USE Rec;
+```
 ```
 CREATE TABLE Users(
     Username VARCHAR(255) PRIMARY KEY, 
