@@ -106,15 +106,19 @@ LIMIT 15;
 
 **Subquery 2**
 
-Query the total number of discounts for each recreational activity that offers discounts (output is less than 15 rows).
+Query the total number of comments for each recreational activity across different states (output is at least 15 rows).
 ```sql
-SELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
+SELECT R.RecName, S.StateName, COUNT(C.CommentId) AS TotalComments
 FROM Recreation R
-JOIN Discounts D ON R.RecName = D.RecName
-GROUP BY R.RecName
-ORDER BY TotalDiscounts DESC;
+JOIN Comments C ON R.RecName = C.RecName
+JOIN States S ON R.StateName = S.StateName
+GROUP BY R.RecName, S.StateName
+ORDER BY TotalComments DESC
+LIMIT 15;
 ```
-![WechatIMG876](https://github.com/user-attachments/assets/ea5c77af-2dcf-40ef-9a1d-cacbd3a6a025)
+![14011730330319_ pic](https://github.com/user-attachments/assets/9eeafbc2-ffeb-454a-a9fc-159060d3ea57)
+
+
 
 
 **Subquery 3**
@@ -214,8 +218,8 @@ The actual time decreased from 7.198 to 6.489 seconds.The cost remained roughly 
 
 **Index 2:**
 
-**Index 3:**
 
+**Index 3:**
 
 
 ## Subquery 3
@@ -238,6 +242,8 @@ Records: 0  Duplicates: 0  Warnings: 0
 ![image](https://github.com/user-attachments/assets/08efd5b3-5435-4024-81de-bd9cc3f1c932)
 
 The results:
+
+
     - The time for execution decreased somewhat, from 7.070..7.072 to 6.385..6.387
     - The cost remained the same at a constant 1772.95
 
@@ -256,6 +262,21 @@ Records: 0  Duplicates: 0  Warnings: 0
 We are creating an index on the Username attribute of the Favorites table because this field is used as aggregation, and indexing it could potentially speed up this query by reducing the number of rows that need to be scanned.
 
 **Index 3:**
+```sql
+CREATE INDEX idx_recreation_statename_recname ON Recreation(StateName, RecName);
+Query OK, 0 rows affected (0.16 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+```
+
+- New Cost: 451.7
+- New Time: 5.233
+
+![6af566d84ffe76055ccceebbf402af6f](https://github.com/user-attachments/assets/75b301fa-b174-4a4c-a666-50095fcb1a06)
+
+We chose to create a composite index on the StateName and RecName columns in the Recreation table. This decision was made because both fields are frequently used in GROUP BY and ORDER BY clauses within the query, making them ideal candidates for indexing. By indexing these fields together, we aimed to speed up the sorting and grouping operations, thereby reducing query execution time.
+  
+Findings and Explanation:
+The actual execution time decreased from 5.288 seconds to 5.233 seconds, showing a measurable improvement. The query cost remained roughly the same, at around 451. The indexing strategy effectively optimized the query by improving the speed of joins, aggregations, and sorting operations, leading to faster execution times and more efficient resource usage.
 
 
 
