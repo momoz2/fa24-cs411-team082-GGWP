@@ -1,7 +1,7 @@
 # Database Implementation and Indexing
 
 ## DDL Table Commands
-```
+```sql
 CREATE DATABASE Rec;
 USE Rec;
 
@@ -80,10 +80,9 @@ CREATE TABLE Comments (
 ![12121730233732_ pic](https://github.com/user-attachments/assets/dfc74918-5386-4738-8229-f38386b23538)
 
 
-
 ## Advanced Query Implementation and Testing 
 **Subquery 1**
-```
+```sql
 SELECT R.RecName, S.Region, COUNT(C.CommentId) AS TotalComments 
 FROM Recreation R JOIN States S ON R.StateName = S.StateName 
 JOIN Comments C ON R.RecName = C.RecName 
@@ -95,7 +94,7 @@ ORDER BY S.Region, TotalComments DESC LIMIT 5;
 
 
 **Subquery 2**
-```
+```sql
 SELECT R.RecName, S.StateName, COUNT(F.RecName) AS TotalFavorites
 FROM Recreation R
 JOIN Favorites F ON R.RecName = F.RecName
@@ -108,7 +107,7 @@ LIMIT 5;
 
 
 **Subquery 3**
-```
+```sql
 ELECT R.RecName, COUNT(D.DiscountId) AS TotalDiscounts
 FROM Recreation R
 JOIN Discounts D ON R.RecName = D.RecName
@@ -118,7 +117,7 @@ ORDER BY TotalDiscounts DESC;
 ![8761730237084_ pic](https://github.com/user-attachments/assets/cfe7d47a-a9d2-4060-a85f-5752d35265eb)
 
 **Subquery 4**
-```
+```sql
 SELECT S.StateName, S.Region, COUNT(R.RecName) AS TotalRecreation
 FROM States S
 JOIN Recreation R ON S.StateName = R.StateName
