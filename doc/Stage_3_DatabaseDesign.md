@@ -81,8 +81,7 @@ CREATE TABLE Comments (
 
 
 
-## At least 1000 rows in at least 3 tables
-We have 2,002 users, 3,952 recreation activities, 1,001 favorites, 1,000 comments.
+## Printed Number of Rows in Each Table
 ![12111730233715_ pic](https://github.com/user-attachments/assets/06fc5a99-3ebd-449f-8522-eb1b159bc216)
 ![12121730233732_ pic](https://github.com/user-attachments/assets/dfc74918-5386-4738-8229-f38386b23538)
 
