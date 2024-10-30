@@ -150,6 +150,8 @@ limit 15;
 
 
 # Indexing
+Cost of Subquery Without Index
+![image](https://github.com/user-attachments/assets/36ebdb0e-28c8-4ea8-b4f0-6a7f0ff81da7)
 
 **Index 1: idx_states_region on the States table**
 ```sql
@@ -157,13 +159,10 @@ CREATE INDEX idx_states_region ON States (Region);
 Query OK, 0 rows affected (0.13 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 ```
-![image](https://github.com/user-attachments/assets/36ebdb0e-28c8-4ea8-b4f0-6a7f0ff81da7)
 
-
-We chose to create an index on the Region attribute of the States table because:\
 The Region column is used in the WHERE clause for filtering records. Indexing this attribute helps reduce the number of rows scanned when filtering for distinct regions across states. In this specific query, the Region is also part of the GROUP BY clause, which further benefits from an index when aggregating data by region.
 
-Observations from the `EXPLAIN ANALYZE` output:\
+Observations:\
 The total execution time decreased slightly after applying the index, improving the query's efficiency when scanning the States table. The query now performs an "Index lookup" on States using idx_states_region, which reduces the cost of scanning the table.
 
 Before the index: The query had to perform a full table scan on the States table to filter by region.\
