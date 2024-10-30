@@ -121,8 +121,6 @@ JOIN Recreation R ON S.StateName = R.StateName
 GROUP BY S.StateName, S.Region
 ORDER BY TotalRecreation DESC;
 ```
-![8791730237254_ pic](https://github.com/user-attachments/assets/5f36ba04-377f-46d8-baee-d9851de76aa1)
-![8801730237254_ pic](https://github.com/user-attachments/assets/cbbe26c6-a89b-4dd7-959e-000bd184e1be)
 
-
-
+![9561730317905_ pic](https://github.com/user-attachments/assets/e9b0cfa1-1fe7-4512-aa50-523e0f7009e2)
+![9571730317908_ pic](https://github.com/user-attachments/assets/b74611db-6a7b-46f9-82c2-f47877f70788)
