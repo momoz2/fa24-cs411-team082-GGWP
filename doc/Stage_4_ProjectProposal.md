@@ -1,3 +1,6 @@
+# Project Proposal
+
+
 Please list out changes in the directions of your project if the final project is different from your original proposal (based on your stage 1 proposal submission).
 Discuss what you think your application achieved or failed to achieve regarding its usefulness.
 Discuss if you changed the schema or source of the data for your application
